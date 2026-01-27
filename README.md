@@ -1,4 +1,46 @@
-# Warping Process
+# waqasahmad.dev
+
+Personal portfolio site intended to be hosted on **GitHub Pages** (repo root, no build step).
+
+This repository also contains the **Warping** framework docs and the `wrun` CLI used to scaffold and grow the site deterministically.
+
+## Specs
+
+- `PRD.md` — requirements + interview transcript
+- `SPECIFICATION.md` — implementation plan (phases, dependencies, acceptance criteria)
+
+## Local preview (once scaffolded)
+
+```bash
+python3 -m http.server
+# then open:
+# http://localhost:8000/
+# http://localhost:8000/work/
+```
+
+## Planned generators (`wrun site:*`)
+
+These are being implemented to support “install once, then generate predictable pages when needed”:
+
+```bash
+./wrun site:init               # scaffold site into current directory (repo root)
+./wrun site:init --defaults    # non-interactive placeholders
+./wrun site:work               # create-missing only
+./wrun site:project <slug>     # generate /work/<slug>/ + append /assets/data/work.json
+```
+
+### Non-negotiables (v1)
+
+- URL convention: directory + `index.html` with trailing slashes.
+- No rewrites:
+  - MUST NOT overwrite `/index.html`, `/work/index.html`, `/work/<slug>/index.html`.
+  - `--force` MAY overwrite only `/assets/*`.
+  - MUST NOT modify `warp.config.json` after `site:init`.
+- Deterministic JSON output for `/assets/data/work.json` (stable key ordering, 2-space indent, newline at EOF).
+
+---
+
+## Warping Framework
 
 **A layered framework for AI-assisted development with consistent standards and workflows.**
 
@@ -383,4 +425,4 @@ Warping embodies:
 
 ---
 
-**Next Steps**: Read [main.md](./main.md) for comprehensive AI guidelines, then customize [user.md](./user.md) with your preferences.
+**Next Steps**: Read [main.md](./main.md) for comprehensive AI guidelines, then customize [core/user.md](./core/user.md) with your preferences.
