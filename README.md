@@ -2,23 +2,15 @@
 
 Static site (repo root) intended for GitHub Pages.
 
-## Local preview
+## About
 
-```bash
-python3 -m http.server
-# then open:
-# http://localhost:8000/
-# http://localhost:8000/work/
-```
+This is Waqas Ahmad’s portfolio site (Unity Game Developer). It’s designed to work directly from disk (`file://`) and when hosted.
 
-## Generators
+## Data
 
-```bash
-./wrun site:init
-./wrun site:work
-./wrun site:project <slug>
-```
+Work items are defined in `assets/data/work.json`.
 
 Notes:
-- The work list renders only when served over HTTP (not file://).
+- When hosted, the work grid progressively enhances by loading `assets/data/work.json`.
+- When opened via `file://`, the work grid uses embedded seed data to avoid browser fetch restrictions.
 - Generators never overwrite user-authored HTML.

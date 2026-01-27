@@ -1,21 +1,30 @@
 {
-  "site_title": "Waqas Ahmad",
-  "site_description": "Unity game developer focused on multiplayer, live ops, monetization, and performance optimization. Experience with Photon, PlayFab, Firebase, and shader development.",
+  "author_name": "Waqas Ahmad",
   "base_url": "https://waqasahmad.dev",
-  "author_name": "Waqas Ahmad Bhatti",
   "cname": "waqasahmad.dev",
   "contact_email": "waqas.stu@gmail.com",
   "nav": [
-    { "label": "Home", "href": "/" },
-    { "label": "Work", "href": "/work/" },
-    { "label": "Contact", "href": "/#contact" }
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/work/",
+      "label": "Work"
+    },
+    {
+      "href": "/#contact",
+      "label": "Contact"
+    }
   ],
   "seo_defaults": {
-    "og_title": "Waqas Ahmad | Unity Game Developer",
-    "og_description": "Unity developer specializing in multiplayer, live ops, monetization, and performance optimization.",
+    "favicon": "/assets/images/favicon.png",
+    "og_description": "Unity game developer focused on shipped games: gameplay systems, live ops, monetization, multiplayer features, performance, and platform ports (mobile and Wear OS).",
     "og_image": "/assets/images/og.png",
-    "favicon": "/assets/images/favicon.png"
+    "og_title": "Waqas Ahmad — Unity Game Developer"
   },
+  "site_description": "Unity game developer focused on shipped games: gameplay systems, live ops, monetization, multiplayer features, performance, and platform ports (mobile and Wear OS).",
+  "site_title": "Waqas Ahmad",
   "socials": {
     "github": "https://github.com/waqaas993",
     "linkedin": "https://www.linkedin.com/in/waqaas993/"

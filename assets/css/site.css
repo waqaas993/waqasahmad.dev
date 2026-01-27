@@ -1,1 +1,38 @@
-/* Optional site overrides (v1) */
+/* Minimal site overrides (keep it lightweight) */
+
+:root{
+  color-scheme: light;
+
+  /* Very subtle technical texture */
+  --grid-color: rgba(15, 23, 42, 0.06);   /* slate-900 @ low opacity */
+  --scanline: rgba(15, 23, 42, 0.035);
+  --glow: rgba(34, 211, 238, 0.12);      /* cyan-ish accent glow */
+}
+
+html.dark{
+  color-scheme: dark;
+  --grid-color: rgba(148, 163, 184, 0.08); /* slate-400 @ low opacity */
+  --scanline: rgba(148, 163, 184, 0.03);
+  --glow: rgba(34, 211, 238, 0.16);
+}
+
+/* Apply on body (or any wrapper) for a faint "engineered" backdrop */
+.bg-grid{
+  background-image:
+    radial-gradient(900px circle at 10% 0%, var(--glow), transparent 55%),
+    linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px),
+    repeating-linear-gradient(
+      to bottom,
+      var(--scanline) 0,
+      var(--scanline) 1px,
+      transparent 2px,
+      transparent 9px
+    );
+  background-size: auto, 56px 56px, 56px 56px, 100% 9px;
+  background-attachment: fixed;
+}
+
+::selection{
+  background: rgba(34, 211, 238, 0.22);
+}

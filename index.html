@@ -3,18 +3,15 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Waqas Ahmad</title>
-<meta name="description" content="Unity game developer focused on multiplayer, live ops, monetization, and performance optimization. Experience with Photon, PlayFab, Firebase, and shader development."/>
-<link rel="canonical" href="https://waqasahmad.dev/"/>
-<link rel="icon" href="assets/images/favicon.png"/>
-<meta property="og:title" content="Waqas Ahmad | Unity Game Developer"/>
-<meta property="og:description" content="Unity developer specializing in multiplayer, live ops, monetization, and performance optimization."/>
-<meta property="og:url" content="https://waqasahmad.dev/"/>
-<meta property="og:image" content="assets/images/og.png"/>
-<script>
-  tailwind.config = { darkMode: 'class' };
-</script>
-<script src="https://cdn.tailwindcss.com"></script>
+<title>Waqas Ahmad — Unity Game Developer</title>
+<meta name="description" content="Unity Game Developer portfolio: multiplayer, live ops, monetization, performance optimization."/>
+<link rel="icon" href="./assets/images/favicon.png"/>
+<link rel="stylesheet" href="./assets/css/site.css"/>
+<meta property="og:title" content="Waqas Ahmad — Unity Game Developer"/>
+<meta property="og:description" content="Unity Game Developer portfolio: multiplayer, live ops, monetization, performance optimization."/>
+<meta property="og:image" content="./assets/images/og.png"/>
+
+<!-- No-flash theme init: applies the correct theme class before paint -->
 <script>
 (function(){
   var key='theme';
@@ -23,54 +20,230 @@
   var prefers=false;
   try{prefers=window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;}catch(e){}
   var isDark = stored ? stored==='dark' : prefers;
-  if(isDark){document.documentElement.classList.add('dark');}
+  var root=document.documentElement;
+  root.classList.toggle('dark', !!isDark);
 })();
 </script>
 
+<!-- Canonical/OG URL: only meaningful when hosted; remove for file:// -->
+<script>
+(function(){
+  try{
+    var proto = window.location && window.location.protocol;
+    var isWeb = proto === 'http:' || proto === 'https:';
+    var canonical = document.querySelector('link[rel="canonical"]');
+    var og = document.querySelector('meta[property="og:url"]');
+
+    if(!isWeb){
+      if(canonical && canonical.parentNode) canonical.parentNode.removeChild(canonical);
+      if(og && og.parentNode) og.parentNode.removeChild(og);
+      return;
+    }
+
+    var u = new URL(window.location.href);
+    u.hash = '';
+    u.search = '';
+
+    // Prefer directory-style canonical for hosted pages.
+    if(u.pathname.endsWith('/index.html')){
+      u.pathname = u.pathname.slice(0, -'index.html'.length);
+    }
+
+    var finalUrl = u.toString();
+
+    if(!canonical){
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', finalUrl);
+
+    if(!og){
+      og = document.createElement('meta');
+      og.setAttribute('property', 'og:url');
+      document.head.appendChild(og);
+    }
+    og.setAttribute('content', finalUrl);
+  }catch(e){}
+})();
+</script>
+
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          accent: {
+            DEFAULT: '#22d3ee',
+            300: '#67e8f9',
+            400: '#22d3ee',
+            500: '#06b6d4',
+            600: '#0891b2'
+          }
+        }
+      }
+    }
+  };
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-white text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100">
-  <header class="border-b border-slate-200 dark:border-slate-800">
-    <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
-      <div class="flex items-center gap-3">
-        <img class="h-10 w-10 rounded-full border border-slate-200 object-cover dark:border-slate-800" src="images/profile.webp" alt="Waqas Ahmad Bhatti"/>
-        <div>
-          <div class="text-base font-semibold">Waqas Ahmad</div>
-          <div class="text-sm text-slate-600 dark:text-slate-300">Unity developer specializing in multiplayer, live ops, monetization, and performance optimization.</div>
+<body class="bg-grid min-h-screen bg-slate-50 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100">
+  <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-slate-50/80 backdrop-blur dark:border-slate-800/70 dark:bg-slate-950/60">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
+      <a class="group flex items-center gap-3" href="./index.html">
+        <img class="h-10 w-10 rounded-xl border border-slate-200 object-cover shadow-sm dark:border-slate-800" src="./images/profile.jpeg" alt="Waqas Ahmad"/>
+        <div class="leading-tight">
+          <div class="text-sm font-semibold tracking-tight">Waqas Ahmad</div>
+          <div class="font-mono text-[11px] uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Unity Game Developer</div>
         </div>
-      </div>
-      <nav class="hidden items-center gap-5 sm:flex">
-        <a class="text-sm font-medium text-slate-700 hover:text-slate-900 dark:text-slate-200 dark:hover:text-white" href="index.html">Home</a>
-        <a class="text-sm font-medium text-slate-700 hover:text-slate-900 dark:text-slate-200 dark:hover:text-white" href="work/index.html">Work</a>
-        <a class="text-sm font-medium text-slate-700 hover:text-slate-900 dark:text-slate-200 dark:hover:text-white" href="#contact">Contact</a>
+      </a>
+
+      <nav class="hidden items-center gap-6 sm:flex" aria-label="Primary">
+        <a class="text-sm font-medium text-slate-700 transition-colors hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:text-slate-200 dark:hover:text-white dark:focus-visible:ring-offset-slate-950" href="./index.html">Home</a>
+        <a class="text-sm font-medium text-slate-700 transition-colors hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:text-slate-200 dark:hover:text-white dark:focus-visible:ring-offset-slate-950" href="./work/index.html">Work</a>
+        <a class="text-sm font-medium text-slate-700 transition-colors hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:text-slate-200 dark:hover:text-white dark:focus-visible:ring-offset-slate-950" href="#contact">Contact</a>
       </nav>
-      <button id="theme-toggle" type="button" class="rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800" aria-label="Toggle dark mode">
-        Toggle
+
+      <button
+        id="theme-toggle"
+        type="button"
+        class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white/60 text-slate-800 shadow-sm transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200 dark:hover:bg-slate-950 dark:focus-visible:ring-offset-slate-950"
+        aria-label="Toggle theme"
+        title="Toggle theme"
+      >
+        <!-- Sun (light mode) -->
+        <svg class="h-5 w-5 dark:hidden" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 18a6 6 0 1 0 0-12a6 6 0 0 0 0 12Z"/>
+          <path d="M12 2v2"/>
+          <path d="M12 20v2"/>
+          <path d="m4.93 4.93 1.41 1.41"/>
+          <path d="m17.66 17.66 1.41 1.41"/>
+          <path d="M2 12h2"/>
+          <path d="M20 12h2"/>
+          <path d="m4.93 19.07 1.41-1.41"/>
+          <path d="m17.66 6.34 1.41-1.41"/>
+        </svg>
+        <!-- Moon (dark mode) -->
+        <svg class="hidden h-5 w-5 dark:block" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/>
+        </svg>
       </button>
     </div>
   </header>
 
-  <main class="mx-auto max-w-5xl px-4 py-12">
-    <section id="work" class="scroll-mt-24">
-      <h2 class="text-2xl font-semibold">Work</h2>
-      <p class="mt-2 text-slate-600 dark:text-slate-300">Featured projects and case studies.</p>
-      <a class="mt-4 inline-flex items-center rounded-md bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100" href="work/index.html">View all work</a>
-    </section>
+  <main class="mx-auto max-w-6xl px-4 pb-16 pt-10 sm:pt-14">
+    <section class="grid items-center gap-10 md:grid-cols-12">
+      <div class="md:col-span-7">
+        <p class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
+          <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+          Remote (global)
+        </p>
+        <h1 class="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
+          Waqas Ahmad
+          <span class="block text-slate-500 dark:text-slate-400">Unity Game Developer</span>
+        </h1>
+        <p class="mt-5 max-w-2xl text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+          Unity game development with hands-on experience in multiplayer features, live ops, monetization systems, performance optimization, and platform porting (mobile and Wear OS). Experienced with Photon, PlayFab, Firebase, shader development, and shipping production games.
+        </p>
 
-    <hr class="my-12 border-slate-200 dark:border-slate-800"/>
+        <div class="mt-6 flex flex-wrap gap-2">
+          <span class="rounded-full border border-slate-200 bg-white/60 px-3 py-1 text-xs text-slate-700 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">Multiplayer</span>
+          <span class="rounded-full border border-slate-200 bg-white/60 px-3 py-1 text-xs text-slate-700 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">Live Ops</span>
+          <span class="rounded-full border border-slate-200 bg-white/60 px-3 py-1 text-xs text-slate-700 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">Monetization</span>
+          <span class="rounded-full border border-slate-200 bg-white/60 px-3 py-1 text-xs text-slate-700 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">Performance</span>
+        </div>
 
-    <section id="contact" class="scroll-mt-24">
-      <h2 class="text-2xl font-semibold">Contact</h2>
-      <p class="mt-2 text-slate-600 dark:text-slate-300">Reach out via email or connect on socials.</p>
-
-      <div class="mt-6 flex flex-wrap gap-3">
-        <a class="inline-flex items-center gap-2 rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800" href="mailto:waqas.stu@gmail.com">Email</a>
-        <a class="inline-flex items-center gap-2 rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800" href="https://github.com/waqaas993" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" class="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.77.6-3.35-1.19-3.35-1.19-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.61.07-.61 1 .07 1.53 1.04 1.53 1.04.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.64-1.34-2.21-.25-4.54-1.1-4.54-4.91 0-1.09.39-1.99 1.03-2.69-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.03A9.5 9.5 0 0 1 12 6.8c.85 0 1.71.11 2.5.33 1.91-1.3 2.75-1.03 2.75-1.03.55 1.41.2 2.45.1 2.71.64.7 1.03 1.6 1.03 2.69 0 3.82-2.34 4.66-4.57 4.9.36.31.68.93.68 1.87v2.77c0 .26.18.58.69.48A10 10 0 0 0 12 2Z"/></svg><span>Github</span></a>
-            <a class="inline-flex items-center gap-2 rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800" href="https://www.linkedin.com/in/waqaas993/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" class="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.95v5.66H9.32V9h3.42v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.25 2.36 4.25 5.44v6.3ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg><span>Linkedin</span></a>
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <a class="inline-flex items-center justify-center rounded-lg bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 active:translate-y-px dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100 dark:focus-visible:ring-offset-slate-950" href="./work/index.html">
+            View Work
+          </a>
+          <a class="inline-flex items-center justify-center rounded-lg border border-slate-200 bg-white/60 px-5 py-3 text-sm font-semibold text-slate-800 shadow-sm transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 active:translate-y-px dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200 dark:hover:bg-slate-950 dark:focus-visible:ring-offset-slate-950" href="./downloads/waqas-ahmad-cv.pdf">
+            Download CV
+          </a>
+          <a class="inline-flex items-center justify-center rounded-lg border border-slate-200 bg-white/60 px-5 py-3 text-sm font-semibold text-slate-800 shadow-sm transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 active:translate-y-px dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200 dark:hover:bg-slate-950 dark:focus-visible:ring-offset-slate-950" href="./downloads/waqas-ahmad-portfolio.pdf">
+            Download Portfolio
+          </a>
+        </div>
       </div>
 
-      <div class="mt-6 flex flex-wrap gap-3">
-        <a class="text-sm underline underline-offset-4 hover:text-slate-700 dark:hover:text-slate-200" href="downloads/waqas-ahmad-cv.pdf">Download CV (PDF)</a>
-        <a class="text-sm underline underline-offset-4 hover:text-slate-700 dark:hover:text-slate-200" href="downloads/waqas-ahmad-portfolio.pdf">Download Portfolio (PDF)</a>
+      <div class="md:col-span-5">
+        <div class="relative mx-auto w-full max-w-sm">
+          <div class="pointer-events-none absolute -inset-4 rounded-3xl bg-accent/10 blur-2xl dark:bg-accent/15"></div>
+          <img class="relative aspect-square w-full rounded-2xl border border-slate-200 bg-white/50 object-cover shadow-lg shadow-slate-200/60 dark:border-slate-800 dark:bg-slate-950/40 dark:shadow-none" src="./images/profile.jpeg" alt="Waqas Ahmad profile photo"/>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-16">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p class="font-mono text-xs uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">Featured</p>
+          <h2 class="mt-2 text-2xl font-semibold tracking-tight">Latest Projects</h2>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">A quick look at recent work — full details on the Work page.</p>
+        </div>
+        <a class="inline-flex items-center gap-2 text-sm font-semibold text-slate-800 transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:text-slate-200 dark:hover:text-accent-300 dark:focus-visible:ring-offset-slate-950" href="./work/index.html">
+          See all
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="mt-6 grid gap-4 md:grid-cols-3">
+        <a class="group rounded-xl border border-slate-200 bg-white/60 p-4 shadow-sm transition hover:-translate-y-0.5 hover:bg-white hover:shadow-md hover:ring-1 hover:ring-accent/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:border-slate-800 dark:bg-slate-950/40 dark:hover:bg-slate-950 dark:hover:ring-accent/40 dark:focus-visible:ring-offset-slate-950" href="./work/index.html">
+          <div class="aspect-[16/9] overflow-hidden rounded-lg border border-slate-200 bg-slate-100 dark:border-slate-800 dark:bg-slate-900">
+            <div class="h-full w-full transition-transform duration-300 group-hover:scale-105"></div>
+          </div>
+          <div class="mt-4 font-semibold tracking-tight">Pack &amp; Match 3D</div>
+          <div class="mt-1 text-sm text-slate-600 dark:text-slate-300">Live ops and feature development for a shipped mobile game.</div>
+          <div class="mt-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">Unity • Live Ops • Monetization</div>
+        </a>
+
+        <a class="group rounded-xl border border-slate-200 bg-white/60 p-4 shadow-sm transition hover:-translate-y-0.5 hover:bg-white hover:shadow-md hover:ring-1 hover:ring-accent/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:border-slate-800 dark:bg-slate-950/40 dark:hover:bg-slate-950 dark:hover:ring-accent/40 dark:focus-visible:ring-offset-slate-950" href="./work/index.html">
+          <div class="aspect-[16/9] overflow-hidden rounded-lg border border-slate-200 bg-slate-100 dark:border-slate-800 dark:bg-slate-900">
+            <div class="h-full w-full transition-transform duration-300 group-hover:scale-105"></div>
+          </div>
+          <div class="mt-4 font-semibold tracking-tight">Linea, an innerlight game</div>
+          <div class="mt-1 text-sm text-slate-600 dark:text-slate-300">Gameplay features and tooling to improve level design efficiency.</div>
+          <div class="mt-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">Unity • Tools • Live Ops</div>
+        </a>
+
+        <a class="group rounded-xl border border-slate-200 bg-white/60 p-4 shadow-sm transition hover:-translate-y-0.5 hover:bg-white hover:shadow-md hover:ring-1 hover:ring-accent/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:border-slate-800 dark:bg-slate-950/40 dark:hover:bg-slate-950 dark:hover:ring-accent/40 dark:focus-visible:ring-offset-slate-950" href="./work/index.html">
+          <div class="aspect-[16/9] overflow-hidden rounded-lg border border-slate-200 bg-slate-100 dark:border-slate-800 dark:bg-slate-900">
+            <div class="h-full w-full transition-transform duration-300 group-hover:scale-105"></div>
+          </div>
+          <div class="mt-4 font-semibold tracking-tight">Luna Playable Ads</div>
+          <div class="mt-1 text-sm text-slate-600 dark:text-slate-300">Lightweight interactive playable ads built for UA testing.</div>
+          <div class="mt-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">Unity • Playable Ads • Optimization</div>
+        </a>
+      </div>
+    </section>
+
+    <section id="contact" class="mt-16 scroll-mt-24">
+      <div class="rounded-2xl border border-slate-200 bg-white/60 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/40">
+        <div class="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p class="font-mono text-xs uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">Contact</p>
+            <h2 class="mt-2 text-2xl font-semibold tracking-tight">Contact</h2>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Remote (global). Email is the best way to reach me.</p>
+          </div>
+        </div>
+
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a class="inline-flex items-center justify-center rounded-lg border border-slate-200 bg-white/70 px-4 py-2 text-sm font-semibold text-slate-800 shadow-sm transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 active:translate-y-px dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200 dark:hover:bg-slate-950 dark:focus-visible:ring-offset-slate-950" href="mailto:waqas.stu@gmail.com">Email</a>
+
+          <a class="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white/70 px-4 py-2 text-sm font-semibold text-slate-800 shadow-sm transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 active:translate-y-px dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200 dark:hover:bg-slate-950 dark:focus-visible:ring-offset-slate-950" href="https://github.com/waqaas993" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" class="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.77.6-3.35-1.19-3.35-1.19-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.61.07-.61 1 .07 1.53 1.04 1.53 1.04.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.64-1.34-2.21-.25-4.54-1.1-4.54-4.91 0-1.09.39-1.99 1.03-2.69-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.03A9.5 9.5 0 0 1 12 6.8c.85 0 1.71.11 2.5.33 1.91-1.3 2.75-1.03 2.75-1.03.55 1.41.2 2.45.1 2.71.64.7 1.03 1.6 1.03 2.69 0 3.82-2.34 4.66-4.57 4.9.36.31.68.93.68 1.87v2.77c0 .26.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+            <span>GitHub</span>
+          </a>
+
+          <a class="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white/70 px-4 py-2 text-sm font-semibold text-slate-800 shadow-sm transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 active:translate-y-px dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200 dark:hover:bg-slate-950 dark:focus-visible:ring-offset-slate-950" href="https://www.linkedin.com/in/waqaas993/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" class="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.95v5.66H9.32V9h3.42v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.25 2.36 4.25 5.44v6.3ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+
+        <div class="mt-6 flex flex-wrap gap-3 text-sm">
+          <a class="inline-flex items-center gap-2 font-semibold text-slate-700 underline decoration-slate-300 underline-offset-4 transition hover:text-accent hover:decoration-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:text-slate-300 dark:decoration-slate-600 dark:hover:text-accent-300 dark:focus-visible:ring-offset-slate-950" href="./downloads/waqas-ahmad-cv.pdf">Download CV (PDF)</a>
+          <a class="inline-flex items-center gap-2 font-semibold text-slate-700 underline decoration-slate-300 underline-offset-4 transition hover:text-accent hover:decoration-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:text-slate-300 dark:decoration-slate-600 dark:hover:text-accent-300 dark:focus-visible:ring-offset-slate-950" href="./downloads/waqas-ahmad-portfolio.pdf">Download Portfolio (PDF)</a>
+        </div>
       </div>
     </section>
   </main>
@@ -80,15 +253,29 @@
   var key='theme';
   var btn=document.getElementById('theme-toggle');
   if(!btn) return;
+
+  function current(){
+    return document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+  }
+
+  function syncLabel(){
+    var isDark = current()==='dark';
+    var next = isDark ? 'light' : 'dark';
+    btn.setAttribute('aria-label', 'Switch to ' + next + ' mode');
+    btn.setAttribute('title', 'Switch to ' + next + ' mode');
+  }
+
   function set(mode){
     try{localStorage.setItem(key, mode);}catch(e){}
-    if(mode==='dark') document.documentElement.classList.add('dark');
-    else document.documentElement.classList.remove('dark');
+    document.documentElement.classList.toggle('dark', mode==='dark');
+    syncLabel();
   }
+
   btn.addEventListener('click', function(){
-    var isDark=document.documentElement.classList.contains('dark');
-    set(isDark ? 'light' : 'dark');
+    set(current()==='dark' ? 'light' : 'dark');
   });
+
+  syncLabel();
 })();
 </script>
 </body>
