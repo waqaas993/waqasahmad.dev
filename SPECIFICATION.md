@@ -148,6 +148,15 @@ Generators MUST NOT mutate this file after `site:init`.
 - Order = display order
 - Duplicate slug → hard error
 
+#### JSON formatting rules (determinism)
+
+- MUST use stable key ordering.
+  - Recommended: `sort_keys=true` when writing JSON.
+- MUST use consistent indentation: 2 spaces.
+- MUST include a trailing newline at EOF.
+- Appends MUST preserve array order.
+- Duplicate slug detection MUST occur before writing.
+
 #### Entry Schema (v1)
 
 Required:
@@ -167,7 +176,9 @@ Optional:
 
 ## Repository Layout (v1)
 
-### Generator-managed (Warp may create/overwrite ONLY under /assets/* with --force)
+### Generator-managed
+
+Warp MAY create these during `site:init`. Warp MUST NEVER overwrite HTML. Warp MAY overwrite ONLY `/assets/*` when `--force` is provided.
 
 - `/index.html`
 - `/work/index.html`
@@ -186,9 +197,17 @@ Optional:
 - `/assets/images/og.png`
 - `/assets/images/favicon.png`
 
-### Human-managed (Warp MUST NOT touch)
+### Human-managed
+
+Warp MAY create these directories (empty) during `site:init`, but MUST NOT overwrite or modify any files within them after creation.
 
 - `/images/`
+- `/downloads/`
+
+Required human assets (placeholders allowed in v1):
+- `/images/profile.webp`
+- `/downloads/waqas-ahmad-cv.pdf`
+- `/downloads/waqas-ahmad-portfolio.pdf`
 
 ---
 
@@ -241,6 +260,8 @@ Optional:
 
 ## Page Templates
 
+Note: v1 “ships” two top-level pages by default (`/` and `/work/`). Project pages under `/work/<slug>/` are generated only when requested.
+
 ### /index.html
 
 MUST include:
@@ -248,10 +269,29 @@ MUST include:
 - `#work`
 - `#contact`
 
+Nav requirements:
+- Nav links MUST be absolute-from-root (e.g. `/`, `/work/`, `/#contact`).
+
+Hero / profile requirements:
+- SHOULD include a profile image reference to `/images/profile.webp`.
+  - Placeholders are allowed in v1.
+
+Downloads:
+- MUST include links to:
+  - `/downloads/waqas-ahmad-cv.pdf`
+  - `/downloads/waqas-ahmad-portfolio.pdf`
+
 `#contact` MUST include:
 
 - `mailto:` using `contact_email`
 - GitHub + LinkedIn links
+- Social links MUST use inline SVG icons (no icon libraries).
+
+Light/dark toggle:
+- MUST default to system preference.
+- MUST persist user choice in `localStorage`.
+- MUST toggle Tailwind `dark` class on `<html>`.
+- MUST be an accessible button (keyboard + `aria-label`).
 
 ---
 
@@ -351,12 +391,19 @@ End-of-phase quality gate:
   - `/assets/js/work.js` (vanilla renderer)
   - `/assets/css/site.css` (minimal overrides; may be empty)
   - placeholder images `/assets/images/og.png` and `/assets/images/favicon.png`
-- Task 3.2.3: Generate “more batteries” files:
+- Task 3.2.3: Create human-managed directories and placeholder assets (create-missing only):
+  - Create `/images/` and `/downloads/` directories.
+  - If missing, create placeholder `/images/profile.webp`.
+  - If missing, create placeholder PDFs:
+    - `/downloads/waqas-ahmad-cv.pdf`
+    - `/downloads/waqas-ahmad-portfolio.pdf`
+  - Acceptance: generator never overwrites these files and never touches `/images/*` or `/downloads/*` outside of `site:init` creation.
+- Task 3.2.4: Generate “more batteries” files:
   - `/.nojekyll`
   - `/robots.txt` (allow all)
   - `/sitemap.xml` (static: only `/` + `/work/`) (Q16)
-- Task 3.2.4: Generate `/CNAME` from config `cname`.
-- Task 3.2.5: Generate `/README.md` with:
+- Task 3.2.5: Generate `/CNAME` from config `cname`.
+- Task 3.2.6: Generate `/README.md` with:
   - local preview instructions (including `python3 -m http.server`)
   - GitHub Pages deploy notes
   - how to run generators
