@@ -1,0 +1,32 @@
+{
+  "author_name": "(Your Name)",
+  "base_url": "https://example.com",
+  "cname": "example.com",
+  "contact_email": "you@example.com",
+  "nav": [
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/work/",
+      "label": "Work"
+    },
+    {
+      "href": "/#contact",
+      "label": "Contact"
+    }
+  ],
+  "seo_defaults": {
+    "favicon": "/assets/images/favicon.png",
+    "og_description": "(A short description)",
+    "og_image": "/assets/images/og.png",
+    "og_title": "(Your Site Title)"
+  },
+  "site_description": "(A short description)",
+  "site_title": "(Your Site Title)",
+  "socials": {
+    "github": "https://github.com/your-handle",
+    "linkedin": "https://www.linkedin.com/in/your-handle/"
+  }
+}

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Work — (Your Site Title)</title>
+<meta name="description" content="(A short description)"/>
+<link rel="canonical" href="https://example.com/work/"/>
+<link rel="icon" href="/assets/images/favicon.png"/>
+<meta property="og:title" content="(Your Site Title)"/>
+<meta property="og:description" content="(A short description)"/>
+<meta property="og:url" content="https://example.com/work/"/>
+<meta property="og:image" content="/assets/images/og.png"/>
+<script>
+  tailwind.config = { darkMode: 'class' };
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+(function(){
+  var key='theme';
+  var stored=null;
+  try{stored=localStorage.getItem(key);}catch(e){}
+  var prefers=false;
+  try{prefers=window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;}catch(e){}
+  var isDark = stored ? stored==='dark' : prefers;
+  if(isDark){document.documentElement.classList.add('dark');}
+})();
+</script>
+
+</head>
+<body class="bg-white text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100">
+  <header class="border-b border-slate-200 dark:border-slate-800">
+    <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
+      <div class="text-base font-semibold"><a href="/">(Your Site Title)</a></div>
+      <nav class="hidden items-center gap-5 sm:flex">
+        <a class="text-sm font-medium text-slate-700 hover:text-slate-900 dark:text-slate-200 dark:hover:text-white" href="/">Home</a>
+        <a class="text-sm font-medium text-slate-700 hover:text-slate-900 dark:text-slate-200 dark:hover:text-white" href="/work/">Work</a>
+        <a class="text-sm font-medium text-slate-700 hover:text-slate-900 dark:text-slate-200 dark:hover:text-white" href="/#contact">Contact</a>
+      </nav>
+      <button id="theme-toggle" type="button" class="rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800" aria-label="Toggle dark mode">
+        Toggle
+      </button>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-5xl px-4 py-12">
+    <h1 class="text-3xl font-semibold">Work</h1>
+    <p class="mt-2 text-slate-600 dark:text-slate-300">Projects and case studies.</p>
+
+    <p id="work-hint" class="mt-6 hidden rounded-md border border-slate-200 bg-slate-50 p-3 text-sm text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"></p>
+
+    <div id="work-list" class="mt-8 grid gap-4 sm:grid-cols-2"></div>
+  </main>
+
+  <script src="/assets/js/work.js"></script>
+<script>
+(function(){
+  var key='theme';
+  var btn=document.getElementById('theme-toggle');
+  if(!btn) return;
+  function set(mode){
+    try{localStorage.setItem(key, mode);}catch(e){}
+    if(mode==='dark') document.documentElement.classList.add('dark');
+    else document.documentElement.classList.remove('dark');
+  }
+  btn.addEventListener('click', function(){
+    var isDark=document.documentElement.classList.contains('dark');
+    set(isDark ? 'light' : 'dark');
+  });
+})();
+</script>
+</body>
+</html>
