@@ -134,3 +134,107 @@ N. (additional features)
 - ⊗ Vague requirements
 - ⊗ Missing dependencies
 - ⊗ Sequential tasks that could be parallel
+
+---
+
+# Interview Transcript (Q&A)
+
+## Q1: Primary target user and usage mode
+**Answer**: Primary = small team (2–10) using Warping as “house rules”. Secondary (light) = solo developer. Must be local-first, deterministic, low ceremony (no Python knowledge required). Optimized for static sites (HTML + Tailwind + tiny JS). Not open-source workflow; not swarm/multi-agent.
+
+## Q2: What Warping should produce
+**Answer**: Scaffold + ongoing generators.
+- Scaffold outputs (repo root): `index.html`, `work/index.html`, `assets/`, `images/`, `CNAME`, `README.md`, `warp.config.json`, optional `robots.txt`, `sitemap.xml`, OG placeholder.
+- Tailwind: CDN-based in v1, no build step.
+- Generators: `wrun site:work`, `wrun site:project <slug>` create new files only; MUST NOT rewrite user-authored HTML.
+
+## Q3: How `/work/index.html` lists projects without HTML rewrites
+**Answer**: Generator-managed data file + tiny JS.
+- Data file: `/assets/data/work.json`
+- `wrun site:project <slug>` MUST ONLY: create `/work/<slug>/index.html` and append entry to `work.json`.
+- JS constraints: vanilla JS, prefer <50 lines, progressive enhancement; no console errors; `file://` shows a hint.
+
+## Q4: Runtime/dependency model for generators
+**Answer**: Python runtime allowed (no Python knowledge required). Extend existing `wrun`. Scaffold into current directory (repo root).
+
+## Q5: Shared layout handling
+**Answer**: Fully static duplicated markup (no runtime includes). Generators guarantee consistency at creation time only.
+
+## Q6: `warp.config.json` (format + scope)
+**Answer**: `warp.config.json` (read-only by default). Scope = practical.
+- Required: `site_title`, `site_description`, `base_url`, `author_name`
+- Also: `cname`, `nav`, `seo_defaults`
+- No design tokens in config for v1. No per-page overrides. No generator auto-editing this file outside explicit init.
+
+## Q7: URL + file-path convention
+**Answer**: Directory + `index.html`.
+- `/work/<slug>/index.html` → `/work/<slug>/`
+- All internal links use trailing slashes.
+- `work.json.links.page` stores public URL (e.g. `/work/pack-match-3d/`).
+
+## Q8: `file://` vs HTTP for project list rendering
+**Answer**: HTTP required for list rendering.
+- Under `file://`, the page loads and shows a hint to run `python3 -m http.server`.
+
+## Q9: `nav` href rule
+**Answer**: `nav[*].href` MUST be absolute-from-root (copy verbatim). Anchors must be `/#contact` not `#contact`.
+
+## Q10: Asset path conventions
+**Answer**: `/assets/` = generator-managed; `/images/` = human-managed.
+- `seo_defaults` includes `og_image` = `/assets/images/og.png` and `favicon` = `/assets/images/favicon.png`.
+
+## Q11: CSS/JS directory layout
+**Answer**: Generator-managed code assets live under `/assets/`.
+- `/assets/css/site.css` (optional small overrides)
+- `/assets/js/work.js` (renderer)
+
+## Q12: CLI command surface + prompting
+**Answer**: Add `site:*` commands inside `wrun`.
+- `wrun site:init` (scaffold)
+- `wrun site:work` (ensure work page + JSON exist)
+- `wrun site:project <slug>` (create project page + append JSON)
+- `site:init` supports hybrid prompts + `--defaults`.
+
+## Q13: Slug rules
+**Answer**: Strict kebab-case only.
+- Allowed: `a-z`, `0-9`, `-`
+- Must start with letter/number; no trailing `-`; no `--`; length 2–60.
+- Invalid slug → hard error; NO files changed.
+
+## Q14: Project metadata collection
+**Answer**: Hybrid.
+- Default interactive prompts: `title` + `summary` (required), then optional `tags`, `links`, `metrics`.
+- `--defaults`: write stub entry with TODO placeholders; non-interactive.
+- Flags may prefill/override any field.
+
+## Q15: Collisions + safety rules
+**Answer**:
+- `--force` supported, but MAY overwrite ONLY `/assets/*`.
+- MUST NOT overwrite user-authored HTML (`/index.html`, `/work/index.html`, `/work/<slug>/index.html`).
+- Duplicate slug in `work.json` → hard error; no changes.
+
+## Q16: `site:init` default scaffold bundle
+**Answer**: Practical bundle.
+- Includes `/.nojekyll`, `/robots.txt` (allow all), `/sitemap.xml` (static: only `/` + `/work/`, never project pages).
+
+## Q17: Default behavior on existing files (no `--force`)
+**Answer**: Per-command behavior.
+- `site:init`: fail if any of: `index.html`, `work/`, `assets/`, `warp.config.json` exist.
+- `site:work`: create-missing only.
+- `site:project`: fail if `/work/<slug>/` exists OR slug exists in `work.json`.
+
+## Q18: Home page sections
+**Answer**: Minimal landing.
+- Required sections: `#work`, `#contact` (top is implicit).
+- Contact default: `mailto:` + GitHub/LinkedIn links.
+
+## Q19: Where contact info lives
+**Answer**: In `warp.config.json`.
+- Add `contact_email`.
+- Add `socials.github` and `socials.linkedin`.
+
+## Q20: `base_url` formatting rule
+**Answer**: Strict; no normalization.
+- MUST start with `https://`
+- MUST NOT end with `/`
+- Invalid → hard error; no files changed.
