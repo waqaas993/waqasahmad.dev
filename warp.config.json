@@ -1,32 +1,23 @@
 {
-  "author_name": "(Your Name)",
-  "base_url": "https://example.com",
-  "cname": "example.com",
-  "contact_email": "you@example.com",
+  "site_title": "Waqas Ahmad",
+  "site_description": "Unity game developer focused on multiplayer, live ops, monetization, and performance optimization. Experience with Photon, PlayFab, Firebase, and shader development.",
+  "base_url": "https://waqasahmad.dev",
+  "author_name": "Waqas Ahmad Bhatti",
+  "cname": "waqasahmad.dev",
+  "contact_email": "waqas.stu@gmail.com",
   "nav": [
-    {
-      "href": "/",
-      "label": "Home"
-    },
-    {
-      "href": "/work/",
-      "label": "Work"
-    },
-    {
-      "href": "/#contact",
-      "label": "Contact"
-    }
+    { "label": "Home", "href": "/" },
+    { "label": "Work", "href": "/work/" },
+    { "label": "Contact", "href": "/#contact" }
   ],
   "seo_defaults": {
-    "favicon": "/assets/images/favicon.png",
-    "og_description": "(A short description)",
+    "og_title": "Waqas Ahmad | Unity Game Developer",
+    "og_description": "Unity developer specializing in multiplayer, live ops, monetization, and performance optimization.",
     "og_image": "/assets/images/og.png",
-    "og_title": "(Your Site Title)"
+    "favicon": "/assets/images/favicon.png"
   },
-  "site_description": "(A short description)",
-  "site_title": "(Your Site Title)",
   "socials": {
-    "github": "https://github.com/your-handle",
-    "linkedin": "https://www.linkedin.com/in/your-handle/"
+    "github": "https://github.com/waqaas993",
+    "linkedin": "https://www.linkedin.com/in/waqaas993/"
   }
 }

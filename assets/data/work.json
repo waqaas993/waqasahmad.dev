@@ -1,1 +1,62 @@
-[]
+[
+  {
+    "links": {
+      "app_store": "https://apps.apple.com/us/app/pack-match-3d/id6450538264",
+      "page": "/work/pack-match-3d/"
+    },
+    "metrics": [
+      "Supported A/B tests and live ops feature rollouts",
+      "Worked on localization (12+ languages, per CV notes)"
+    ],
+    "slug": "pack-match-3d",
+    "summary": "Unity development plus live ops support for a shipped mobile title, including feature work, localization, and experimentation support for UA and monetization teams.",
+    "tags": [
+      "Unity",
+      "C#",
+      "Live Ops",
+      "Monetization",
+      "Localization",
+      "Mobile"
+    ],
+    "title": "Pack & Match 3D"
+  },
+  {
+    "links": {
+      "app_store": "https://apps.apple.com/jo/app/linea-an-innerlight-game/id1640475275",
+      "page": "/work/linea-innerlight/"
+    },
+    "metrics": [
+      "Implemented an in-editor level generator (reported ~50% time saving in CV notes)",
+      "Added an infinite mode feature (reported engagement uplift in CV notes)"
+    ],
+    "slug": "linea-innerlight",
+    "summary": "Shipped feature development and live ops support. Built tooling to speed up level creation and delivered gameplay features to increase engagement.",
+    "tags": [
+      "Unity",
+      "C#",
+      "Live Ops",
+      "Tools",
+      "Mobile"
+    ],
+    "title": "Linea, an innerlight game"
+  },
+  {
+    "links": {
+      "page": "/work/luna-playable-ads/"
+    },
+    "metrics": [
+      "Optimized playables for ~1MB size target (per CV notes)",
+      "Delivered multiple distinct campaigns for A/B testing (per CV notes)"
+    ],
+    "slug": "luna-playable-ads",
+    "summary": "Built lightweight HTML5 playable ad experiences for UA experimentation, optimized for fast load and strict size constraints.",
+    "tags": [
+      "Unity",
+      "Playable Ads",
+      "UA",
+      "Optimization",
+      "HTML5"
+    ],
+    "title": "Luna Playable Ads"
+  }
+]
