@@ -1,62 +1,106 @@
 [
   {
-    "links": {
-      "app_store": "https://apps.apple.com/us/app/pack-match-3d/id6450538264",
-      "page": "/work/pack-match-3d/"
-    },
-    "metrics": [
-      "Supported A/B tests and live ops feature rollouts",
-      "Worked on localization (12+ languages, per CV notes)"
-    ],
     "slug": "pack-match-3d",
-    "summary": "Unity development plus live ops support for a shipped mobile title, including feature work, localization, and experimentation support for UA and monetization teams.",
+    "title": "Pack & Match 3D",
+    "summary": "Shipped 3D puzzle title; built live ops features and experimentation support for monetization and UA.",
+    "thumbnail": "/images/work/pack-match-3d/thumb.webp",
+    "thumbnail_alt": "Pack & Match 3D thumbnail",
     "tags": [
       "Unity",
-      "C#",
+      "Mobile",
       "Live Ops",
       "Monetization",
-      "Localization",
-      "Mobile"
+      "Puzzle"
     ],
-    "title": "Pack & Match 3D"
+    "links": {
+      "page": "/work/pack-match-3d/",
+      "app_store": "https://apps.apple.com/us/app/pack-match-3d/id6450538264"
+    }
   },
   {
-    "links": {
-      "app_store": "https://apps.apple.com/jo/app/linea-an-innerlight-game/id1640475275",
-      "page": "/work/linea-innerlight/"
-    },
-    "metrics": [
-      "Implemented an in-editor level generator (reported ~50% time saving in CV notes)",
-      "Added an infinite mode feature (reported engagement uplift in CV notes)"
-    ],
     "slug": "linea-innerlight",
-    "summary": "Shipped feature development and live ops support. Built tooling to speed up level creation and delivered gameplay features to increase engagement.",
+    "title": "Linea: an innerlight game",
+    "summary": "Puzzle adventure game; built Unity tooling and gameplay systems to speed iteration and support long-term updates.",
+    "thumbnail": "/images/work/linea-innerlight/thumb.webp",
+    "thumbnail_alt": "Linea: an innerlight game thumbnail",
     "tags": [
       "Unity",
-      "C#",
-      "Live Ops",
+      "Mobile",
       "Tools",
-      "Mobile"
+      "Gameplay",
+      "Puzzle"
     ],
-    "title": "Linea, an innerlight game"
+    "links": {
+      "page": "/work/linea-innerlight/",
+      "app_store": "https://apps.apple.com/jo/app/linea-an-innerlight-game/id1640475275"
+    }
   },
   {
-    "links": {
-      "page": "/work/luna-playable-ads/"
-    },
-    "metrics": [
-      "Optimized playables for ~1MB size target (per CV notes)",
-      "Delivered multiple distinct campaigns for A/B testing (per CV notes)"
-    ],
-    "slug": "luna-playable-ads",
-    "summary": "Built lightweight HTML5 playable ad experiences for UA experimentation, optimized for fast load and strict size constraints.",
+    "slug": "color-gradient-jigsaw-puzzle",
+    "title": "Color Gradient Jigsaw Puzzle",
+    "summary": "Color-based jigsaw puzzle; implemented core systems and retention loops like daily rewards and streaks.",
+    "thumbnail": "/images/work/color-gradient-jigsaw-puzzle/thumb.webp",
+    "thumbnail_alt": "Color Gradient Jigsaw Puzzle thumbnail",
     "tags": [
       "Unity",
+      "Mobile",
+      "Puzzle",
+      "Retention",
+      "Jigsaw"
+    ],
+    "links": {
+      "page": "/work/color-gradient-jigsaw-puzzle/"
+    }
+  },
+  {
+    "slug": "color-puzzle-game-hue-match",
+    "title": "Color Puzzle Game – Hue Match",
+    "summary": "Hue-matching puzzle; added leaderboards and progression while keeping performance stable on mobile.",
+    "thumbnail": "/images/work/color-puzzle-game-hue-match/thumb.webp",
+    "thumbnail_alt": "Color Puzzle Game – Hue Match thumbnail",
+    "tags": [
+      "Unity",
+      "Mobile",
+      "Puzzle",
+      "Progression",
+      "Performance"
+    ],
+    "links": {
+      "page": "/work/color-puzzle-game-hue-match/"
+    }
+  },
+  {
+    "slug": "energy-anti-stress-loops",
+    "title": "Energy: Anti-Stress Loops",
+    "summary": "Wear OS port; adapted UI and dial-based input, and optimized performance for small screens.",
+    "thumbnail": "/images/work/energy-anti-stress-loops/thumb.webp",
+    "thumbnail_alt": "Energy: Anti-Stress Loops thumbnail",
+    "tags": [
+      "Unity",
+      "Wear OS",
+      "Mobile",
+      "Performance",
+      "UI"
+    ],
+    "links": {
+      "page": "/work/energy-anti-stress-loops/"
+    }
+  },
+  {
+    "slug": "luna-playable-ads",
+    "title": "Luna Playable Ads",
+    "summary": "Playable ad campaigns; built lightweight interactive prototypes optimized for fast load and strict size limits.",
+    "thumbnail": "/images/work/luna-playable-ads/thumb.svg",
+    "thumbnail_alt": "Luna Playable Ads thumbnail",
+    "tags": [
       "Playable Ads",
       "UA",
       "Optimization",
+      "Unity",
       "HTML5"
     ],
-    "title": "Luna Playable Ads"
+    "links": {
+      "page": "/work/luna-playable-ads/"
+    }
   }
 ]

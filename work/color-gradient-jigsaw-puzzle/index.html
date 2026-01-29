@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Color Gradient Jigsaw Puzzle — Waqas Ahmad</title>
+<meta name="description" content="A jigsaw puzzle experience where pieces blend into a complete color gradient."/>
+<link rel="icon" href="../../assets/images/favicon.png"/>
+<link rel="stylesheet" href="../../assets/css/site.css"/>
+
+<!-- No-flash theme init: applies the correct theme class before paint -->
+<script>
+(function(){
+  var key='theme';
+  var stored=null;
+  try{stored=localStorage.getItem(key);}catch(e){}
+  var prefers=false;
+  try{prefers=window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;}catch(e){}
+  var isDark = stored ? stored==='dark' : prefers;
+  var root=document.documentElement;
+  root.classList.toggle('dark', !!isDark);
+})();
+</script>
+
+<script>
+  tailwind.config = { darkMode: 'class' };
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-grid min-h-screen bg-slate-50 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100">
+  <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-slate-50/80 backdrop-blur dark:border-slate-800/70 dark:bg-slate-950/60">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
+      <a class="text-sm font-semibold tracking-tight" href="../../index.html">Waqas Ahmad<span class="ml-2 font-mono text-[11px] uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">Work</span></a>
+
+      <nav class="hidden items-center gap-6 sm:flex" aria-label="Primary">
+        <a class="text-sm font-medium text-slate-700 transition-colors hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:text-slate-200 dark:hover:text-white dark:focus-visible:ring-offset-slate-950" href="../../index.html">Home</a>
+        <a class="text-sm font-medium text-slate-700 transition-colors hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:text-slate-200 dark:hover:text-white dark:focus-visible:ring-offset-slate-950" href="../index.html">Work</a>
+        <a class="text-sm font-medium text-slate-700 transition-colors hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:text-slate-200 dark:hover:text-white dark:focus-visible:ring-offset-slate-950" href="../../index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-6xl px-4 pb-16 pt-10 sm:pt-14">
+    <a class="text-sm text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white" href="../index.html">← Back to Work</a>
+
+    <h1 class="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Color Gradient Jigsaw Puzzle</h1>
+    <p class="mt-3 max-w-2xl text-sm text-slate-600 dark:text-slate-300">A jigsaw puzzle experience where pieces blend into a complete color gradient.</p>
+
+    <section class="mt-10">
+      <h2 class="text-xl font-semibold tracking-tight">Overview</h2>
+      <div class="mt-3 space-y-3 text-sm text-slate-600 dark:text-slate-300">
+        <p>Color Gradient Jigsaw Puzzle is a mobile jigsaw experience where the “image” is a smooth color gradient rather than a traditional picture.</p>
+        <p>The core challenge is making piece interaction feel crisp and forgiving on touch while keeping the underlying color ordering consistent as the puzzle scales.</p>
+        <p>I worked as a Unity developer, focusing on the puzzle interaction layer, data-driven puzzle setup, and the performance/stability constraints that come with lots of interactive pieces.</p>
+      </div>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-xl font-semibold tracking-tight">What I Worked On</h2>
+      <ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600 dark:text-slate-300">
+        <li>Implemented touch-first jigsaw interactions (drag, snap-to-target, placement validation) with clear feedback.</li>
+        <li>Built the logic for gradient-driven puzzles so piece ordering and “correctness” stay deterministic across devices.</li>
+        <li>Added quality-of-life UX around selection, snapping thresholds, and error tolerance so the puzzle feels smooth instead of finicky.</li>
+        <li>Implemented save/resume for in-progress puzzles so sessions can be short and interruptible.</li>
+        <li>Profiled and optimized for many active pieces on screen, reducing per-frame work and avoidable allocations.</li>
+        <li>Maintained Android build/release readiness (packaging, device validation, and store-ready output).</li>
+      </ul>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-xl font-semibold tracking-tight">Technical Notes</h2>
+      <ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600 dark:text-slate-300">
+        <li>Handled input and coordinate-space conversions carefully to keep interactions consistent across aspect ratios and DPI ranges.</li>
+        <li>Tuned snapping and placement checks to be forgiving while still preventing incorrect “near misses” from locking in.</li>
+        <li>Focused on predictable frame pacing by keeping hot-path code allocation-free and avoiding excessive per-piece updates.</li>
+        <li>Separated puzzle rule evaluation from presentation so UI polish and logic changes could evolve independently.</li>
+      </ul>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-xl font-semibold tracking-tight">Outcome / Impact</h2>
+      <ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600 dark:text-slate-300">
+        <li>Shipped to production on Google Play.</li>
+        <li>Delivered stable, touch-friendly jigsaw interactions suitable for quick sessions.</li>
+        <li>Improved maintainability by keeping puzzle rules, data, and presentation cleanly separated.</li>
+      </ul>
+    </section>
+
+    <section class="mt-10 rounded-2xl border border-slate-200 bg-white/60 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/40">
+      <h2 class="font-mono text-xs uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">Get the Game</h2>
+      <div class="mt-4 flex flex-wrap gap-2">
+        <a href="https://play.google.com/store/apps/details?id=com.puzzlegames.jigsawcolor" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white/70 px-3 py-2 text-xs font-semibold text-slate-800 shadow-sm transition hover:bg-white hover:ring-1 hover:ring-accent/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200 dark:hover:bg-slate-950 dark:hover:ring-accent/40 dark:focus-visible:ring-offset-slate-950">
+          <svg viewBox="0 0 24 24" class="h-4 w-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+            <path d="M8 6.5v11l10-5.5-10-5.5Z"/>
+          </svg>
+          <span>Google Play</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+  (function(){
+    var key='theme';
+    var btn=document.getElementById('theme-toggle');
+    if(!btn) return;
+
+    function current(){
+      return document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    }
+
+    function syncLabel(){
+      var isDark = current()==='dark';
+      var next = isDark ? 'light' : 'dark';
+      btn.setAttribute('aria-label', 'Switch to ' + next + ' mode');
+      btn.setAttribute('title', 'Switch to ' + next + ' mode');
+    }
+
+    function set(mode){
+      try{localStorage.setItem(key, mode);}catch(e){}
+      document.documentElement.classList.toggle('dark', mode==='dark');
+      syncLabel();
+    }
+
+    btn.addEventListener('click', function(){
+      set(current()==='dark' ? 'light' : 'dark');
+    });
+
+    syncLabel();
+  })();
+  </script>
+</body>
+</html>

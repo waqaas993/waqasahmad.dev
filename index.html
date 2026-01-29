@@ -11,7 +11,7 @@
 <meta property="og:description" content="Unity Game Developer portfolio: multiplayer, live ops, monetization, performance optimization."/>
 <meta property="og:image" content="./assets/images/og.png"/>
 
-<!-- No-flash theme init: applies the correct theme class before paint -->
+<!-- No-flash theme init: currently forced to dark (toggle UI removed); keep code for future -->
 <script>
 (function(){
   var key='theme';
@@ -88,47 +88,19 @@
 </script>
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-grid min-h-screen bg-slate-50 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100">
-  <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-slate-50/80 backdrop-blur dark:border-slate-800/70 dark:bg-slate-950/60">
-    <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
-      <a class="group flex items-center gap-3" href="./index.html">
-        <img class="h-10 w-10 rounded-xl border border-slate-200 object-cover shadow-sm dark:border-slate-800" src="./images/profile.jpeg" alt="Waqas Ahmad"/>
-        <div class="leading-tight">
-          <div class="text-sm font-semibold tracking-tight">Waqas Ahmad</div>
-          <div class="font-mono text-[11px] uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Unity Game Developer</div>
-        </div>
+<body class="bg-grid min-h-screen bg-white text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100">
+  <header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/85 shadow-sm shadow-slate-200/60 backdrop-blur dark:border-slate-800/80 dark:bg-slate-950/70 dark:shadow-none">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
+      <a class="text-sm font-semibold tracking-tight" href="./index.html">
+        Waqas Ahmad
+        <span class="ml-2 font-mono text-[11px] uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">Unity Game Developer</span>
       </a>
 
       <nav class="hidden items-center gap-6 sm:flex" aria-label="Primary">
-        <a class="text-sm font-medium text-slate-700 transition-colors hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:text-slate-200 dark:hover:text-white dark:focus-visible:ring-offset-slate-950" href="./index.html">Home</a>
-        <a class="text-sm font-medium text-slate-700 transition-colors hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:text-slate-200 dark:hover:text-white dark:focus-visible:ring-offset-slate-950" href="./work/index.html">Work</a>
-        <a class="text-sm font-medium text-slate-700 transition-colors hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:text-slate-200 dark:hover:text-white dark:focus-visible:ring-offset-slate-950" href="#contact">Contact</a>
+        <a class="text-sm font-medium leading-6 text-slate-700 transition-colors hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:text-slate-200 dark:hover:text-white dark:focus-visible:ring-offset-slate-950" href="./index.html">Home</a>
+        <a class="text-sm font-medium leading-6 text-slate-700 transition-colors hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:text-slate-200 dark:hover:text-white dark:focus-visible:ring-offset-slate-950" href="./work/index.html">Work</a>
+        <a class="text-sm font-medium leading-6 text-slate-700 transition-colors hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:text-slate-200 dark:hover:text-white dark:focus-visible:ring-offset-slate-950" href="#contact">Contact</a>
       </nav>
-
-      <button
-        id="theme-toggle"
-        type="button"
-        class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white/60 text-slate-800 shadow-sm transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200 dark:hover:bg-slate-950 dark:focus-visible:ring-offset-slate-950"
-        aria-label="Toggle theme"
-        title="Toggle theme"
-      >
-        <!-- Sun (light mode) -->
-        <svg class="h-5 w-5 dark:hidden" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 18a6 6 0 1 0 0-12a6 6 0 0 0 0 12Z"/>
-          <path d="M12 2v2"/>
-          <path d="M12 20v2"/>
-          <path d="m4.93 4.93 1.41 1.41"/>
-          <path d="m17.66 17.66 1.41 1.41"/>
-          <path d="M2 12h2"/>
-          <path d="M20 12h2"/>
-          <path d="m4.93 19.07 1.41-1.41"/>
-          <path d="m17.66 6.34 1.41-1.41"/>
-        </svg>
-        <!-- Moon (dark mode) -->
-        <svg class="hidden h-5 w-5 dark:block" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/>
-        </svg>
-      </button>
     </div>
   </header>
 
@@ -136,33 +108,34 @@
     <section class="grid items-center gap-10 md:grid-cols-12">
       <div class="md:col-span-7">
         <p class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
-          <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+          <span class="h-1.5 w-1.5 rounded-full bg-accent-600 dark:bg-accent-400"></span>
           Remote (global)
         </p>
-        <h1 class="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
+        <h1 class="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl dark:text-white">
           Waqas Ahmad
           <span class="block text-slate-500 dark:text-slate-400">Unity Game Developer</span>
         </h1>
         <p class="mt-5 max-w-2xl text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-          Unity game development with hands-on experience in multiplayer features, live ops, monetization systems, performance optimization, and platform porting (mobile and Wear OS). Experienced with Photon, PlayFab, Firebase, shader development, and shipping production games.
+          I build and ship Unity mobile games, from gameplay systems to live ops and monetization.
+          My work includes released titles on iOS and Android, built to scale after launch.
         </p>
 
         <div class="mt-6 flex flex-wrap gap-2">
-          <span class="rounded-full border border-slate-200 bg-white/60 px-3 py-1 text-xs text-slate-700 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">Multiplayer</span>
-          <span class="rounded-full border border-slate-200 bg-white/60 px-3 py-1 text-xs text-slate-700 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">Live Ops</span>
-          <span class="rounded-full border border-slate-200 bg-white/60 px-3 py-1 text-xs text-slate-700 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">Monetization</span>
-          <span class="rounded-full border border-slate-200 bg-white/60 px-3 py-1 text-xs text-slate-700 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">Performance</span>
+          <span class="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700 shadow-sm dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-200">Multiplayer</span>
+          <span class="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700 shadow-sm dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-200">Live Ops</span>
+          <span class="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700 shadow-sm dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-200">Monetization</span>
+          <span class="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700 shadow-sm dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-200">Performance</span>
         </div>
 
         <div class="mt-8 flex flex-wrap items-center gap-3">
-          <a class="inline-flex items-center justify-center rounded-lg bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 active:translate-y-px dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100 dark:focus-visible:ring-offset-slate-950" href="./work/index.html">
+          <a class="inline-flex items-center justify-center rounded-lg bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-white active:translate-y-px dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100 dark:focus-visible:ring-offset-slate-950" href="./work/index.html">
             View Work
           </a>
-          <a class="inline-flex items-center justify-center rounded-lg border border-slate-200 bg-white/60 px-5 py-3 text-sm font-semibold text-slate-800 shadow-sm transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 active:translate-y-px dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200 dark:hover:bg-slate-950 dark:focus-visible:ring-offset-slate-950" href="./downloads/waqas-ahmad-cv.pdf">
+          <a class="inline-flex items-center justify-center rounded-lg border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-800 shadow-sm transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-white active:translate-y-px dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-200 dark:hover:bg-slate-900 dark:focus-visible:ring-offset-slate-950" href="./downloads/waqas-ahmad-cv.pdf">
             Download CV
           </a>
-          <a class="inline-flex items-center justify-center rounded-lg border border-slate-200 bg-white/60 px-5 py-3 text-sm font-semibold text-slate-800 shadow-sm transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 active:translate-y-px dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200 dark:hover:bg-slate-950 dark:focus-visible:ring-offset-slate-950" href="./downloads/waqas-ahmad-portfolio.pdf">
-            Download Portfolio
+          <a class="inline-flex items-center justify-center rounded-lg border border-slate-200 bg-white/60 px-5 py-3 text-sm font-semibold text-slate-800 shadow-sm transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 active:translate-y-px dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200 dark:hover:bg-slate-950 dark:focus-visible:ring-offset-slate-950" href="./downloads/waqas-ahmad-portfolio.pdf" style="background: transparent; border: 0; padding: 0; box-shadow: none; text-decoration: underline; text-underline-offset: 4px;">
+            Download Portfolio PDF →
           </a>
         </div>
       </div>
@@ -175,12 +148,12 @@
       </div>
     </section>
 
-    <section class="mt-16">
+    <section class="site-panel mt-10 rounded-2xl p-6">
       <div class="flex flex-wrap items-end justify-between gap-4">
         <div>
           <p class="font-mono text-xs uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">Featured</p>
-          <h2 class="mt-2 text-2xl font-semibold tracking-tight">Latest Projects</h2>
-          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">A quick look at recent work — full details on the Work page.</p>
+          <h2 class="mt-2 text-2xl font-semibold tracking-tight">Featured Projects</h2>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Shipped titles and systems work — open a project for scope and details.</p>
         </div>
         <a class="inline-flex items-center gap-2 text-sm font-semibold text-slate-800 transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:text-slate-200 dark:hover:text-accent-300 dark:focus-visible:ring-offset-slate-950" href="./work/index.html">
           See all
@@ -188,38 +161,15 @@
         </a>
       </div>
 
-      <div class="mt-6 grid gap-4 md:grid-cols-3">
-        <a class="group rounded-xl border border-slate-200 bg-white/60 p-4 shadow-sm transition hover:-translate-y-0.5 hover:bg-white hover:shadow-md hover:ring-1 hover:ring-accent/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:border-slate-800 dark:bg-slate-950/40 dark:hover:bg-slate-950 dark:hover:ring-accent/40 dark:focus-visible:ring-offset-slate-950" href="./work/index.html">
-          <div class="aspect-[16/9] overflow-hidden rounded-lg border border-slate-200 bg-slate-100 dark:border-slate-800 dark:bg-slate-900">
-            <div class="h-full w-full transition-transform duration-300 group-hover:scale-105"></div>
-          </div>
-          <div class="mt-4 font-semibold tracking-tight">Pack &amp; Match 3D</div>
-          <div class="mt-1 text-sm text-slate-600 dark:text-slate-300">Live ops and feature development for a shipped mobile game.</div>
-          <div class="mt-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">Unity • Live Ops • Monetization</div>
-        </a>
+      <p class="mt-4 max-w-3xl text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+        I’m a Unity developer focused on shipping and sustaining mobile games. I’ve worked across gameplay systems, live ops, monetization features, and performance work on released titles. If you’re hiring for a Unity role, the fastest way to evaluate my work is the project pages below.
+      </p>
 
-        <a class="group rounded-xl border border-slate-200 bg-white/60 p-4 shadow-sm transition hover:-translate-y-0.5 hover:bg-white hover:shadow-md hover:ring-1 hover:ring-accent/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:border-slate-800 dark:bg-slate-950/40 dark:hover:bg-slate-950 dark:hover:ring-accent/40 dark:focus-visible:ring-offset-slate-950" href="./work/index.html">
-          <div class="aspect-[16/9] overflow-hidden rounded-lg border border-slate-200 bg-slate-100 dark:border-slate-800 dark:bg-slate-900">
-            <div class="h-full w-full transition-transform duration-300 group-hover:scale-105"></div>
-          </div>
-          <div class="mt-4 font-semibold tracking-tight">Linea, an innerlight game</div>
-          <div class="mt-1 text-sm text-slate-600 dark:text-slate-300">Gameplay features and tooling to improve level design efficiency.</div>
-          <div class="mt-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">Unity • Tools • Live Ops</div>
-        </a>
-
-        <a class="group rounded-xl border border-slate-200 bg-white/60 p-4 shadow-sm transition hover:-translate-y-0.5 hover:bg-white hover:shadow-md hover:ring-1 hover:ring-accent/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:border-slate-800 dark:bg-slate-950/40 dark:hover:bg-slate-950 dark:hover:ring-accent/40 dark:focus-visible:ring-offset-slate-950" href="./work/index.html">
-          <div class="aspect-[16/9] overflow-hidden rounded-lg border border-slate-200 bg-slate-100 dark:border-slate-800 dark:bg-slate-900">
-            <div class="h-full w-full transition-transform duration-300 group-hover:scale-105"></div>
-          </div>
-          <div class="mt-4 font-semibold tracking-tight">Luna Playable Ads</div>
-          <div class="mt-1 text-sm text-slate-600 dark:text-slate-300">Lightweight interactive playable ads built for UA testing.</div>
-          <div class="mt-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">Unity • Playable Ads • Optimization</div>
-        </a>
-      </div>
+      <div id="featured-list" class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-live="polite"></div>
     </section>
 
     <section id="contact" class="mt-16 scroll-mt-24">
-      <div class="rounded-2xl border border-slate-200 bg-white/60 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/40">
+      <div class="site-panel rounded-2xl p-6">
         <div class="flex flex-wrap items-end justify-between gap-4">
           <div>
             <p class="font-mono text-xs uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">Contact</p>
@@ -229,13 +179,13 @@
         </div>
 
         <div class="mt-6 flex flex-wrap gap-3">
-          <a class="inline-flex items-center justify-center rounded-lg border border-slate-200 bg-white/70 px-4 py-2 text-sm font-semibold text-slate-800 shadow-sm transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 active:translate-y-px dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200 dark:hover:bg-slate-950 dark:focus-visible:ring-offset-slate-950" href="mailto:waqas.stu@gmail.com">Email</a>
+          <a class="inline-flex items-center justify-center rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-800 shadow-sm transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-white active:translate-y-px dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-200 dark:hover:bg-slate-900 dark:focus-visible:ring-offset-slate-950" href="mailto:waqas.stu@gmail.com">Email</a>
 
-          <a class="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white/70 px-4 py-2 text-sm font-semibold text-slate-800 shadow-sm transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 active:translate-y-px dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200 dark:hover:bg-slate-950 dark:focus-visible:ring-offset-slate-950" href="https://github.com/waqaas993" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" class="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.77.6-3.35-1.19-3.35-1.19-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.61.07-.61 1 .07 1.53 1.04 1.53 1.04.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.64-1.34-2.21-.25-4.54-1.1-4.54-4.91 0-1.09.39-1.99 1.03-2.69-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.03A9.5 9.5 0 0 1 12 6.8c.85 0 1.71.11 2.5.33 1.91-1.3 2.75-1.03 2.75-1.03.55 1.41.2 2.45.1 2.71.64.7 1.03 1.6 1.03 2.69 0 3.82-2.34 4.66-4.57 4.9.36.31.68.93.68 1.87v2.77c0 .26.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+          <a class="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-800 shadow-sm transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-white active:translate-y-px dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-200 dark:hover:bg-slate-900 dark:focus-visible:ring-offset-slate-950" href="https://github.com/waqaas993" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" class="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.77.6-3.35-1.19-3.35-1.19-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.61.07-.61 1 .07 1.53 1.04 1.53 1.04.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.64-1.34-2.21-.25-4.54-1.1-4.54-4.91 0-1.09.39-1.99 1.03-2.69-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.03A9.5 9.5 0 0 1 12 6.8c.85 0 1.71.11 2.5.33 1.91-1.3 2.75-1.03 2.75-1.03.55 1.41.2 2.45.1 2.71.64.7 1.03 1.6 1.03 2.69 0 3.82-2.34 4.66-4.57 4.9.36.31.68.93.68 1.87v2.77c0 .26.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
             <span>GitHub</span>
           </a>
 
-          <a class="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white/70 px-4 py-2 text-sm font-semibold text-slate-800 shadow-sm transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 active:translate-y-px dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200 dark:hover:bg-slate-950 dark:focus-visible:ring-offset-slate-950" href="https://www.linkedin.com/in/waqaas993/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" class="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.95v5.66H9.32V9h3.42v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.25 2.36 4.25 5.44v6.3ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          <a class="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-800 shadow-sm transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-white active:translate-y-px dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-200 dark:hover:bg-slate-900 dark:focus-visible:ring-offset-slate-950" href="https://www.linkedin.com/in/waqaas993/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" class="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.95v5.66H9.32V9h3.42v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.25 2.36 4.25 5.44v6.3ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
             <span>LinkedIn</span>
           </a>
         </div>
@@ -278,5 +228,6 @@
   syncLabel();
 })();
 </script>
+  <script src="./assets/js/work.js"></script>
 </body>
 </html>

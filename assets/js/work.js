@@ -48,43 +48,70 @@
     {
       "slug": "pack-match-3d",
       "title": "Pack & Match 3D",
-      "summary": "Unity development plus live ops support for a shipped mobile title, including feature work, localization, and experimentation support for UA and monetization teams.",
-      "tags": ["Unity", "C#", "Live Ops", "Monetization", "Localization", "Mobile"],
+      "summary": "Shipped 3D puzzle title; built live ops features and experimentation support for monetization and UA.",
+      "thumbnail": "/images/work/pack-match-3d/thumb.webp",
+      "thumbnail_alt": "Pack & Match 3D thumbnail",
+      "tags": ["Unity", "Mobile", "Live Ops", "Monetization", "Puzzle"],
       "links": {
         "page": "/work/pack-match-3d/",
         "app_store": "https://apps.apple.com/us/app/pack-match-3d/id6450538264"
-      },
-      "metrics": [
-        "Supported A/B tests and live ops feature rollouts",
-        "Worked on localization (12+ languages, per CV notes)"
-      ]
+      }
     },
     {
       "slug": "linea-innerlight",
-      "title": "Linea, an innerlight game",
-      "summary": "Shipped feature development and live ops support. Built tooling to speed up level creation and delivered gameplay features to increase engagement.",
-      "tags": ["Unity", "C#", "Live Ops", "Tools", "Mobile"],
+      "title": "Linea: an innerlight game",
+      "summary": "Puzzle adventure game; built Unity tooling and gameplay systems to speed iteration and support long-term updates.",
+      "thumbnail": "/images/work/linea-innerlight/thumb.webp",
+      "thumbnail_alt": "Linea: an innerlight game thumbnail",
+      "tags": ["Unity", "Mobile", "Tools", "Gameplay", "Puzzle"],
       "links": {
         "page": "/work/linea-innerlight/",
         "app_store": "https://apps.apple.com/jo/app/linea-an-innerlight-game/id1640475275"
-      },
-      "metrics": [
-        "Implemented an in-editor level generator (reported ~50% time saving in CV notes)",
-        "Added an infinite mode feature (reported engagement uplift in CV notes)"
-      ]
+      }
+    },
+    {
+      "slug": "color-gradient-jigsaw-puzzle",
+      "title": "Color Gradient Jigsaw Puzzle",
+      "summary": "Color-based jigsaw puzzle; implemented core systems and retention loops like daily rewards and streaks.",
+      "thumbnail": "/images/work/color-gradient-jigsaw-puzzle/thumb.webp",
+      "thumbnail_alt": "Color Gradient Jigsaw Puzzle thumbnail",
+      "tags": ["Unity", "Mobile", "Puzzle", "Retention", "Jigsaw"],
+      "links": {
+        "page": "/work/color-gradient-jigsaw-puzzle/"
+      }
+    },
+    {
+      "slug": "color-puzzle-game-hue-match",
+      "title": "Color Puzzle Game – Hue Match",
+      "summary": "Hue-matching puzzle; added leaderboards and progression while keeping performance stable on mobile.",
+      "thumbnail": "/images/work/color-puzzle-game-hue-match/thumb.webp",
+      "thumbnail_alt": "Color Puzzle Game – Hue Match thumbnail",
+      "tags": ["Unity", "Mobile", "Puzzle", "Progression", "Performance"],
+      "links": {
+        "page": "/work/color-puzzle-game-hue-match/"
+      }
+    },
+    {
+      "slug": "energy-anti-stress-loops",
+      "title": "Energy: Anti-Stress Loops",
+      "summary": "Wear OS port; adapted UI and dial-based input, and optimized performance for small screens.",
+      "thumbnail": "/images/work/energy-anti-stress-loops/thumb.webp",
+      "thumbnail_alt": "Energy: Anti-Stress Loops thumbnail",
+      "tags": ["Unity", "Wear OS", "Mobile", "Performance", "UI"],
+      "links": {
+        "page": "/work/energy-anti-stress-loops/"
+      }
     },
     {
       "slug": "luna-playable-ads",
       "title": "Luna Playable Ads",
-      "summary": "Built lightweight HTML5 playable ad experiences for UA experimentation, optimized for fast load and strict size constraints.",
-      "tags": ["Unity", "Playable Ads", "UA", "Optimization", "HTML5"],
+      "summary": "Playable ad campaigns; built lightweight interactive prototypes optimized for fast load and strict size limits.",
+      "thumbnail": "/images/work/luna-playable-ads/thumb.svg",
+      "thumbnail_alt": "Luna Playable Ads thumbnail",
+      "tags": ["Playable Ads", "UA", "Optimization", "Unity", "HTML5"],
       "links": {
         "page": "/work/luna-playable-ads/"
-      },
-      "metrics": [
-        "Optimized playables for ~1MB size target (per CV notes)",
-        "Delivered multiple distinct campaigns for A/B testing (per CV notes)"
-      ]
+      }
     }
   ];
 
@@ -103,6 +130,45 @@
     }
   }
 
+  function fileRepoRootUrl(){
+    // Compute a stable "repo root" directory URL under file://.
+    // - file:///.../index.html -> file:///.../
+    // - file:///.../work/index.html -> file:///.../
+    // - file:///.../work/<slug>/index.html -> file:///.../
+    try{
+      var p = window.location && window.location.pathname ? String(window.location.pathname) : '';
+      if(p.endsWith('/index.html')) p = p.slice(0, -'/index.html'.length);
+
+      var i = p.lastIndexOf('/work');
+      if(i !== -1){
+        var after = p.slice(i);
+        if(after === '/work' || after.indexOf('/work/') === 0){
+          p = p.slice(0, i);
+        }
+      }
+
+      if(!p.endsWith('/')) p += '/';
+      return new URL(p, window.location.href).toString();
+    }catch(e){
+      return window.location && window.location.href ? window.location.href : '';
+    }
+  }
+
+  function resolveFileHref(href){
+    href = String(href || '');
+    if(!href) return '';
+    if(href.charAt(0) === '#') return href;
+    if(/^https?:\/\//.test(href)) return href;
+
+    // Treat leading-slash URLs as repo-root relative under file://
+    if(href.charAt(0) === '/'){
+      var rel = href.replace(/^\/+/, '');
+      try{ return new URL(rel, fileRepoRootUrl()).toString(); }catch(e){ return rel; }
+    }
+
+    try{ return new URL(href, window.location.href).toString(); }catch(e){ return href; }
+  }
+
   function resolveHostedHref(pageHref){
     pageHref = String(pageHref || '');
     if(!pageHref) return '';
@@ -119,6 +185,13 @@
     }catch(e){
       return pageHref;
     }
+  }
+
+  function resolveAssetHref(href){
+    // For assets like thumbnails: support leading "/" paths on both hosted and file://.
+    href = String(href || '');
+    if(!href) return '';
+    return isFile ? resolveFileHref(href) : resolveHostedHref(href);
   }
 
   function externalLink(it){
@@ -140,7 +213,13 @@
     var href = '';
 
     if(isFile){
-      href = slug ? ('./' + slug + '/index.html') : '#contact';
+      // file:// links should work from both:
+      // - /index.html (featured section)
+      // - /work/index.html (grid)
+      var onWorkPage = false;
+      try{ onWorkPage = /\/work\//.test(String(window.location && window.location.pathname || '')); }catch(e){}
+      var base = onWorkPage ? './' : './work/';
+      href = slug ? (base + slug + '/index.html') : '#contact';
     } else {
       if(it.links && it.links.page){
         href = resolveHostedHref(it.links.page);
@@ -169,14 +248,15 @@
         '</div>';
     }
 
-    var image = firstTruthy(it, ['image','thumbnail','cover','hero']);
+    var image = firstTruthy(it, ['thumbnail','image','cover','hero']);
     var media = '';
 
     if(image){
-      var alt = escapeHtml(it.imageAlt || it.title || it.slug || 'Project image');
+      var alt = escapeHtml(it.thumbnail_alt || it.imageAlt || it.title || it.slug || 'Project thumbnail');
+      var src = resolveAssetHref(image);
       media = '' +
         '<div class="aspect-[16/9] overflow-hidden rounded-lg border border-slate-200 bg-slate-100 dark:border-slate-800 dark:bg-slate-900">' +
-          '<img src="' + escapeHtml(image) + '" alt="' + alt + '" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"/>' +
+          '<img src="' + escapeHtml(src) + '" alt="' + alt + '" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"/>' +
         '</div>';
     } else {
       // tasteful placeholder (no loud gradient)
@@ -231,9 +311,9 @@
     return seedItems.slice();
   }
 
-  function render(items){
-    var list=document.getElementById('work-list');
+  function renderInto(list, items, opts){
     if(!list) return;
+    opts = opts || {};
 
     var isPlaceholder = false;
     if(!items || !items.length){
@@ -241,14 +321,26 @@
       items = placeholderItems();
     }
 
-    // Hide hint for real data renders
-    if(!isPlaceholder){
+    if(opts.limit && items.length > opts.limit){
+      items = items.slice(0, opts.limit);
+    }
+
+    // Hide hint for real data renders (work page only)
+    if(opts.hideHintOnReal && !isPlaceholder){
       var hint=document.getElementById('work-hint');
       if(hint) hint.classList.add('hidden');
     }
 
     list.innerHTML = items.map(cardHtml).join('');
     fadeInCards(list);
+  }
+
+  function render(items){
+    // /work/ listing (show all)
+    renderInto(document.getElementById('work-list'), items, { hideHintOnReal: true });
+
+    // Home featured section (show top 5)
+    renderInto(document.getElementById('featured-list'), items, { limit: 5 });
   }
 
   function load(){
@@ -260,12 +352,8 @@
       return;
     }
 
-    var url;
-    try{
-      url = new URL('../assets/data/work.json', window.location.href).toString();
-    }catch(e){
-      url = '../assets/data/work.json';
-    }
+    // Fetch canonical work data (works from both / and /work/, including subpath deployments)
+    var url = resolveHostedHref('/assets/data/work.json');
 
     fetch(url).then(function(r){
       if(!r.ok) throw new Error('bad');
