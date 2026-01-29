@@ -62,13 +62,3 @@ Note: this repo may contain legacy thumbnail formats (e.g. `thumb.svg`) for spec
   ```bash
   python3 -m http.server
   ```
-
-## Tooling (Warping)
-This repo includes an embedded `warping/` project with a Python CLI (`warping/wrun`).
-- The generators are **create-missing / no-overwrite**: they must not rewrite existing user-authored HTML.
-- Useful commands:
-  ```bash
-  ./warping/wrun help
-  ./warping/wrun site:work
-  ./warping/wrun site:project <slug>
-  ```
