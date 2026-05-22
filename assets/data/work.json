@@ -2,7 +2,7 @@
   {
     "slug": "pack-match-3d",
     "title": "Pack & Match 3D",
-    "summary": "Shipped 3D puzzle title; built live ops features and experimentation support for monetization and UA.",
+    "summary": "Shipped 3D puzzle title; owned live ops, monetization, experimentation, and scalable product systems supporting post-launch growth.",
     "thumbnail": "/images/work/pack-match-3d/thumb.webp",
     "thumbnail_alt": "Pack & Match 3D thumbnail",
     "tags": [
@@ -10,7 +10,7 @@
       "Mobile",
       "Live Ops",
       "Monetization",
-      "Puzzle"
+      "Product Systems"
     ],
     "links": {
       "page": "/work/pack-match-3d/",
@@ -20,14 +20,14 @@
   {
     "slug": "linea-innerlight",
     "title": "Linea: an innerlight game",
-    "summary": "Puzzle adventure game; built Unity tooling and gameplay systems to speed iteration and support long-term updates.",
+    "summary": "Puzzle adventure game; built Unity tooling, gameplay systems, and delivery workflows that improved iteration speed and long-term maintainability.",
     "thumbnail": "/images/work/linea-innerlight/thumb.webp",
     "thumbnail_alt": "Linea: an innerlight game thumbnail",
     "tags": [
       "Unity",
       "Mobile",
-      "Tools",
-      "Gameplay",
+      "Tooling",
+      "Delivery",
       "Puzzle"
     ],
     "links": {
@@ -38,7 +38,7 @@
   {
     "slug": "color-gradient-jigsaw-puzzle",
     "title": "Color Gradient Jigsaw Puzzle",
-    "summary": "Color-based jigsaw puzzle; implemented core systems and retention loops like daily rewards and streaks.",
+    "summary": "Color-based jigsaw puzzle; implemented core systems and retention loops including daily rewards, streaks, and progression mechanics.",
     "thumbnail": "/images/work/color-gradient-jigsaw-puzzle/thumb.webp",
     "thumbnail_alt": "Color Gradient Jigsaw Puzzle thumbnail",
     "tags": [
@@ -46,7 +46,7 @@
       "Mobile",
       "Puzzle",
       "Retention",
-      "Jigsaw"
+      "Progression"
     ],
     "links": {
       "page": "/work/color-gradient-jigsaw-puzzle/"
@@ -55,13 +55,13 @@
   {
     "slug": "color-puzzle-game-hue-match",
     "title": "Color Puzzle Game – Hue Match",
-    "summary": "Hue-matching puzzle; added leaderboards and progression while keeping performance stable on mobile.",
+    "summary": "Hue-matching puzzle; added leaderboards, progression systems, and mobile performance improvements while keeping the user experience stable.",
     "thumbnail": "/images/work/color-puzzle-game-hue-match/thumb.webp",
     "thumbnail_alt": "Color Puzzle Game – Hue Match thumbnail",
     "tags": [
       "Unity",
       "Mobile",
-      "Puzzle",
+      "Product Systems",
       "Progression",
       "Performance"
     ],
@@ -72,7 +72,7 @@
   {
     "slug": "energy-anti-stress-loops",
     "title": "Energy: Anti-Stress Loops",
-    "summary": "Wear OS port; adapted UI and dial-based input, and optimized performance for small screens.",
+    "summary": "Wear OS port; adapted interaction, UI, and performance systems for small-screen wearable constraints.",
     "thumbnail": "/images/work/energy-anti-stress-loops/thumb.webp",
     "thumbnail_alt": "Energy: Anti-Stress Loops thumbnail",
     "tags": [
@@ -89,7 +89,7 @@
   {
     "slug": "luna-playable-ads",
     "title": "Luna Playable Ads",
-    "summary": "Playable ad campaigns; built lightweight interactive prototypes optimized for fast load and strict size limits.",
+    "summary": "Playable ad campaigns; built lightweight interactive prototypes optimized for fast loading, strict size limits, and user-acquisition testing.",
     "thumbnail": "/images/work/luna-playable-ads/thumb.svg",
     "thumbnail_alt": "Luna Playable Ads thumbnail",
     "tags": [
