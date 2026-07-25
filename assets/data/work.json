@@ -1,5 +1,43 @@
 [
   {
+    "slug": "associations-colorwood-game",
+    "title": "Associations - Colorwood Game",
+    "summary": "Unity-built word association puzzle; contributed to mobile product systems across gameplay, hints, live ops, monetization, and production reliability.",
+    "thumbnail": "/images/work/associations-colorwood-game/thumb.webp",
+    "thumbnail_alt": "Associations - Colorwood Game thumbnail",
+    "tags": [
+      "Unity",
+      "Mobile",
+      "Word Puzzle",
+      "Live Ops",
+      "Product Systems"
+    ],
+    "links": {
+      "page": "/work/associations-colorwood-game/",
+      "google_play": "https://play.google.com/store/apps/details?id=games.burny.associations.word.puzzle&hl=en",
+      "app_store": "https://apps.apple.com/us/app/associations-colorwood-game/id6749696890"
+    }
+  },
+  {
+    "slug": "idle-flight-manager",
+    "title": "Idle Flight Manager",
+    "summary": "React, TypeScript, Vite, and Capacitor mobile game; building a map-driven airline management product with Cursor-assisted development workflows.",
+    "thumbnail": "/images/work/idle-flight-manager/thumb.webp",
+    "thumbnail_alt": "Idle Flight Manager thumbnail",
+    "tags": [
+      "React",
+      "TypeScript",
+      "Capacitor",
+      "Vite",
+      "Cursor"
+    ],
+    "links": {
+      "page": "/work/idle-flight-manager/",
+      "google_play": "https://play.google.com/store/apps/details?id=com.infinitygames.flightmanager&hl=en",
+      "app_store": "https://apps.apple.com/us/app/idle-flight-manager/id6761718791"
+    }
+  },
+  {
     "slug": "pack-match-3d",
     "title": "Pack & Match 3D",
     "summary": "Shipped 3D puzzle title; owned live ops, monetization, experimentation, and scalable product systems supporting post-launch growth.",
@@ -54,10 +92,10 @@
   },
   {
     "slug": "color-puzzle-game-hue-match",
-    "title": "Color Puzzle Game – Hue Match",
+    "title": "Color Puzzle Game \u2013 Hue Match",
     "summary": "Hue-matching puzzle; added leaderboards, progression systems, and mobile performance improvements while keeping the user experience stable.",
     "thumbnail": "/images/work/color-puzzle-game-hue-match/thumb.webp",
-    "thumbnail_alt": "Color Puzzle Game – Hue Match thumbnail",
+    "thumbnail_alt": "Color Puzzle Game \u2013 Hue Match thumbnail",
     "tags": [
       "Unity",
       "Mobile",

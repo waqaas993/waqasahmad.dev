@@ -45,110 +45,148 @@
   // Seed data (static-first): used for file:// and as initial render on hosted.
   // Keep in sync with /assets/data/work.json.
   var seedItems = [
-  {
-    "slug": "pack-match-3d",
-    "title": "Pack & Match 3D",
-    "summary": "Shipped 3D puzzle title; owned live ops, monetization, experimentation, and scalable product systems supporting post-launch growth.",
-    "thumbnail": "/images/work/pack-match-3d/thumb.webp",
-    "thumbnail_alt": "Pack & Match 3D thumbnail",
-    "tags": [
-      "Unity",
-      "Mobile",
-      "Live Ops",
-      "Monetization",
-      "Product Systems"
-    ],
-    "links": {
-      "page": "/work/pack-match-3d/",
-      "app_store": "https://apps.apple.com/us/app/pack-match-3d/id6450538264"
+    {
+        "slug": "associations-colorwood-game",
+        "title": "Associations - Colorwood Game",
+        "summary": "Unity-built word association puzzle; contributed to mobile product systems across gameplay, hints, live ops, monetization, and production reliability.",
+        "thumbnail": "/images/work/associations-colorwood-game/thumb.webp",
+        "thumbnail_alt": "Associations - Colorwood Game thumbnail",
+        "tags": [
+            "Unity",
+            "Mobile",
+            "Word Puzzle",
+            "Live Ops",
+            "Product Systems"
+        ],
+        "links": {
+            "page": "/work/associations-colorwood-game/",
+            "google_play": "https://play.google.com/store/apps/details?id=games.burny.associations.word.puzzle&hl=en",
+            "app_store": "https://apps.apple.com/us/app/associations-colorwood-game/id6749696890"
+        }
+    },
+    {
+        "slug": "idle-flight-manager",
+        "title": "Idle Flight Manager",
+        "summary": "React, TypeScript, Vite, and Capacitor mobile game; building a map-driven airline management product with Cursor-assisted development workflows.",
+        "thumbnail": "/images/work/idle-flight-manager/thumb.webp",
+        "thumbnail_alt": "Idle Flight Manager thumbnail",
+        "tags": [
+            "React",
+            "TypeScript",
+            "Capacitor",
+            "Vite",
+            "Cursor"
+        ],
+        "links": {
+            "page": "/work/idle-flight-manager/",
+            "google_play": "https://play.google.com/store/apps/details?id=com.infinitygames.flightmanager&hl=en",
+            "app_store": "https://apps.apple.com/us/app/idle-flight-manager/id6761718791"
+        }
+    },
+    {
+        "slug": "pack-match-3d",
+        "title": "Pack & Match 3D",
+        "summary": "Shipped 3D puzzle title; owned live ops, monetization, experimentation, and scalable product systems supporting post-launch growth.",
+        "thumbnail": "/images/work/pack-match-3d/thumb.webp",
+        "thumbnail_alt": "Pack & Match 3D thumbnail",
+        "tags": [
+            "Unity",
+            "Mobile",
+            "Live Ops",
+            "Monetization",
+            "Product Systems"
+        ],
+        "links": {
+            "page": "/work/pack-match-3d/",
+            "app_store": "https://apps.apple.com/us/app/pack-match-3d/id6450538264"
+        }
+    },
+    {
+        "slug": "linea-innerlight",
+        "title": "Linea: an innerlight game",
+        "summary": "Puzzle adventure game; built Unity tooling, gameplay systems, and delivery workflows that improved iteration speed and long-term maintainability.",
+        "thumbnail": "/images/work/linea-innerlight/thumb.webp",
+        "thumbnail_alt": "Linea: an innerlight game thumbnail",
+        "tags": [
+            "Unity",
+            "Mobile",
+            "Tooling",
+            "Delivery",
+            "Puzzle"
+        ],
+        "links": {
+            "page": "/work/linea-innerlight/",
+            "app_store": "https://apps.apple.com/jo/app/linea-an-innerlight-game/id1640475275"
+        }
+    },
+    {
+        "slug": "color-gradient-jigsaw-puzzle",
+        "title": "Color Gradient Jigsaw Puzzle",
+        "summary": "Color-based jigsaw puzzle; implemented core systems and retention loops including daily rewards, streaks, and progression mechanics.",
+        "thumbnail": "/images/work/color-gradient-jigsaw-puzzle/thumb.webp",
+        "thumbnail_alt": "Color Gradient Jigsaw Puzzle thumbnail",
+        "tags": [
+            "Unity",
+            "Mobile",
+            "Puzzle",
+            "Retention",
+            "Progression"
+        ],
+        "links": {
+            "page": "/work/color-gradient-jigsaw-puzzle/"
+        }
+    },
+    {
+        "slug": "color-puzzle-game-hue-match",
+        "title": "Color Puzzle Game – Hue Match",
+        "summary": "Hue-matching puzzle; added leaderboards, progression systems, and mobile performance improvements while keeping the user experience stable.",
+        "thumbnail": "/images/work/color-puzzle-game-hue-match/thumb.webp",
+        "thumbnail_alt": "Color Puzzle Game – Hue Match thumbnail",
+        "tags": [
+            "Unity",
+            "Mobile",
+            "Product Systems",
+            "Progression",
+            "Performance"
+        ],
+        "links": {
+            "page": "/work/color-puzzle-game-hue-match/"
+        }
+    },
+    {
+        "slug": "energy-anti-stress-loops",
+        "title": "Energy: Anti-Stress Loops",
+        "summary": "Wear OS port; adapted interaction, UI, and performance systems for small-screen wearable constraints.",
+        "thumbnail": "/images/work/energy-anti-stress-loops/thumb.webp",
+        "thumbnail_alt": "Energy: Anti-Stress Loops thumbnail",
+        "tags": [
+            "Unity",
+            "Wear OS",
+            "Mobile",
+            "Performance",
+            "UI"
+        ],
+        "links": {
+            "page": "/work/energy-anti-stress-loops/"
+        }
+    },
+    {
+        "slug": "luna-playable-ads",
+        "title": "Luna Playable Ads",
+        "summary": "Playable ad campaigns; built lightweight interactive prototypes optimized for fast loading, strict size limits, and user-acquisition testing.",
+        "thumbnail": "/images/work/luna-playable-ads/thumb.svg",
+        "thumbnail_alt": "Luna Playable Ads thumbnail",
+        "tags": [
+            "Playable Ads",
+            "UA",
+            "Optimization",
+            "Unity",
+            "HTML5"
+        ],
+        "links": {
+            "page": "/work/luna-playable-ads/"
+        }
     }
-  },
-  {
-    "slug": "linea-innerlight",
-    "title": "Linea: an innerlight game",
-    "summary": "Puzzle adventure game; built Unity tooling, gameplay systems, and delivery workflows that improved iteration speed and long-term maintainability.",
-    "thumbnail": "/images/work/linea-innerlight/thumb.webp",
-    "thumbnail_alt": "Linea: an innerlight game thumbnail",
-    "tags": [
-      "Unity",
-      "Mobile",
-      "Tooling",
-      "Delivery",
-      "Puzzle"
-    ],
-    "links": {
-      "page": "/work/linea-innerlight/",
-      "app_store": "https://apps.apple.com/jo/app/linea-an-innerlight-game/id1640475275"
-    }
-  },
-  {
-    "slug": "color-gradient-jigsaw-puzzle",
-    "title": "Color Gradient Jigsaw Puzzle",
-    "summary": "Color-based jigsaw puzzle; implemented core systems and retention loops including daily rewards, streaks, and progression mechanics.",
-    "thumbnail": "/images/work/color-gradient-jigsaw-puzzle/thumb.webp",
-    "thumbnail_alt": "Color Gradient Jigsaw Puzzle thumbnail",
-    "tags": [
-      "Unity",
-      "Mobile",
-      "Puzzle",
-      "Retention",
-      "Progression"
-    ],
-    "links": {
-      "page": "/work/color-gradient-jigsaw-puzzle/"
-    }
-  },
-  {
-    "slug": "color-puzzle-game-hue-match",
-    "title": "Color Puzzle Game – Hue Match",
-    "summary": "Hue-matching puzzle; added leaderboards, progression systems, and mobile performance improvements while keeping the user experience stable.",
-    "thumbnail": "/images/work/color-puzzle-game-hue-match/thumb.webp",
-    "thumbnail_alt": "Color Puzzle Game – Hue Match thumbnail",
-    "tags": [
-      "Unity",
-      "Mobile",
-      "Product Systems",
-      "Progression",
-      "Performance"
-    ],
-    "links": {
-      "page": "/work/color-puzzle-game-hue-match/"
-    }
-  },
-  {
-    "slug": "energy-anti-stress-loops",
-    "title": "Energy: Anti-Stress Loops",
-    "summary": "Wear OS port; adapted interaction, UI, and performance systems for small-screen wearable constraints.",
-    "thumbnail": "/images/work/energy-anti-stress-loops/thumb.webp",
-    "thumbnail_alt": "Energy: Anti-Stress Loops thumbnail",
-    "tags": [
-      "Unity",
-      "Wear OS",
-      "Mobile",
-      "Performance",
-      "UI"
-    ],
-    "links": {
-      "page": "/work/energy-anti-stress-loops/"
-    }
-  },
-  {
-    "slug": "luna-playable-ads",
-    "title": "Luna Playable Ads",
-    "summary": "Playable ad campaigns; built lightweight interactive prototypes optimized for fast loading, strict size limits, and user-acquisition testing.",
-    "thumbnail": "/images/work/luna-playable-ads/thumb.svg",
-    "thumbnail_alt": "Luna Playable Ads thumbnail",
-    "tags": [
-      "Playable Ads",
-      "UA",
-      "Optimization",
-      "Unity",
-      "HTML5"
-    ],
-    "links": {
-      "page": "/work/luna-playable-ads/"
-    }
-  }
 ];
 
   function siteBasePath(){
