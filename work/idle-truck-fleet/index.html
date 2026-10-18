@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Idle Truck Fleet — Waqas Ahmad</title>
+<meta name="description" content="Case study: porting and hardening a Supabase cloud save system for a TypeScript and Capacitor idle trucking game."/>
+<link rel="canonical" href="https://waqasahmad.dev/work/idle-truck-fleet/"/>
+<link rel="icon" href="../../assets/images/favicon.png"/>
+<meta property="og:title" content="Idle Truck Fleet — Waqas Ahmad"/>
+<meta property="og:description" content="Case study: porting and hardening a Supabase cloud save system for a TypeScript and Capacitor idle trucking game."/>
+<meta property="og:url" content="https://waqasahmad.dev/work/idle-truck-fleet/"/>
+<meta property="og:image" content="../../assets/images/og.png"/>
+<script>
+  tailwind.config = { darkMode: 'class' };
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+(function(){
+  var key='theme';
+  var stored=null;
+  try{stored=localStorage.getItem(key);}catch(e){}
+  var prefers=false;
+  try{prefers=window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;}catch(e){}
+  var isDark = stored ? stored==='dark' : prefers;
+  if(isDark){document.documentElement.classList.add('dark');}
+})();
+</script>
+</head>
+<body class="bg-white text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100">
+  <header class="border-b border-slate-200 dark:border-slate-800">
+    <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
+      <div class="text-base font-semibold"><a href="../../index.html">Waqas Ahmad</a></div>
+      <nav class="hidden items-center gap-5 sm:flex">
+        <a class="text-sm font-medium text-slate-700 hover:text-slate-900 dark:text-slate-200 dark:hover:text-white" href="../../index.html">Home</a>
+        <a class="text-sm font-medium text-slate-700 hover:text-slate-900 dark:text-slate-200 dark:hover:text-white" href="../index.html">Work</a>
+        <a class="text-sm font-medium text-slate-700 hover:text-slate-900 dark:text-slate-200 dark:hover:text-white" href="../../index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-5xl px-4 py-12">
+    <a class="text-sm text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white" href="../index.html">← Back to Work</a>
+
+    <h1 class="mt-3 text-3xl font-semibold">Idle Truck Fleet</h1>
+    <p class="mt-2 max-w-3xl text-slate-600 dark:text-slate-300">An idle trucking game about building America’s largest fleet. My main contribution was bringing a production-grade cloud save system over from Idle Flight Manager and making it safe for this game’s economy.</p>
+
+    <div class="mt-6 flex flex-wrap gap-3">
+    </div>
+
+    <hr class="my-10 border-slate-200 dark:border-slate-800"/>
+
+    <section class="mt-10">
+      <h2 class="text-xl font-semibold">Overview</h2>
+      <p class="mt-2 text-slate-600 dark:text-slate-300">Players buy trucks, hire drivers, and dispatch them on coast-to-coast jobs, with an AI manager, repairs, incidents, R&amp;D, contracts, and offline catch-up. The game is vanilla TypeScript with a Canvas 2D world and DOM UI, shipped with Capacitor.</p>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-xl font-semibold">What I built</h2>
+      <p class="mt-2 text-slate-600 dark:text-slate-300">The cloud save port: Supabase schema and migrations, durable device identity, sync orchestration, restore prompt and conflict resolution, transfer codes and unlinking, ledger merge with payout guards, IAP refund revocation, and protection against idle devices creating needless revisions. I also isolated e2e runs from production data and shipped a round of UX and A/B-flagged fixes.</p>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-xl font-semibold">Tech stack</h2>
+      <p class="mt-2 text-slate-600 dark:text-slate-300">TypeScript, Vite, Canvas 2D, Capacitor 8, Supabase, Firebase, native IAP, AppLovin, i18next across 11 locales, Vitest, Playwright, Storybook, and Fastlane.</p>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-xl font-semibold">Why it matters</h2>
+      <p class="mt-2 text-slate-600 dark:text-slate-300">Reusing a hard-won system across products is where engineering effort compounds. Porting it meant adapting identity, economy, and purchase rules to a different codebase without breaking existing players.</p>
+    </section>
+
+  </main>
+
+<script>
+(function(){
+  var key='theme';
+  var btn=document.getElementById('theme-toggle');
+  if(!btn) return;
+  function set(mode){
+    try{localStorage.setItem(key, mode);}catch(e){}
+    if(mode==='dark') document.documentElement.classList.add('dark');
+    else document.documentElement.classList.remove('dark');
+  }
+  btn.addEventListener('click', function(){
+    var isDark=document.documentElement.classList.contains('dark');
+    set(isDark ? 'light' : 'dark');
+  });
+})();
+</script>
+</body>
+</html>

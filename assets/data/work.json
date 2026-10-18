@@ -21,20 +21,107 @@
   {
     "slug": "idle-flight-manager",
     "title": "Idle Flight Manager",
-    "summary": "React, TypeScript, Vite, and Capacitor mobile game; building a map-driven airline management product with Cursor-assisted development workflows.",
+    "summary": "Live airline-management game; core engineer on cloud save, weekly leaderboards, ads and IAP integrity, A/B testing, push, map performance, and store releases.",
     "thumbnail": "/images/work/idle-flight-manager/thumb.webp",
     "thumbnail_alt": "Idle Flight Manager thumbnail",
     "tags": [
       "React",
       "TypeScript",
       "Capacitor",
-      "Vite",
-      "Cursor"
+      "Live Ops",
+      "Claude Code"
     ],
     "links": {
       "page": "/work/idle-flight-manager/",
       "google_play": "https://play.google.com/store/apps/details?id=com.infinitygames.flightmanager&hl=en",
       "app_store": "https://apps.apple.com/us/app/idle-flight-manager/id6761718791"
+    }
+  },
+  {
+    "slug": "mayday-hero",
+    "title": "Mayday Hero: Idle Rescue",
+    "summary": "Idle emergency-dispatch game I built almost single-handedly: live-map routing, fleet and crew progression, prestige, monetization, and the release pipeline. In testing on Google Play.",
+    "thumbnail": "/images/work/mayday-hero/thumb.webp",
+    "thumbnail_alt": "Mayday Hero: Idle Rescue thumbnail",
+    "tags": [
+      "React",
+      "TypeScript",
+      "Capacitor",
+      "Product Systems",
+      "AI-Assisted"
+    ],
+    "links": {
+      "page": "/work/mayday-hero/"
+    }
+  },
+  {
+    "slug": "idle-dot-shooter",
+    "title": "Idle Dot Shooter",
+    "summary": "Live idle shooter; shipped cloud save with cross-device transfer, consent and ATT flows, ad and attribution SDK hardening, A/B segmentation, and Android stability fixes.",
+    "thumbnail": "/images/work/idle-dot-shooter/thumb.webp",
+    "thumbnail_alt": "Idle Dot Shooter thumbnail",
+    "tags": [
+      "Live Ops",
+      "Monetization",
+      "Capacitor",
+      "Supabase",
+      "React"
+    ],
+    "links": {
+      "page": "/work/idle-dot-shooter/",
+      "google_play": "https://play.google.com/store/apps/details?id=com.infinitygames.dotcollect",
+      "app_store": "https://apps.apple.com/app/id6759000921"
+    }
+  },
+  {
+    "slug": "idle-truck-fleet",
+    "title": "Idle Truck Fleet",
+    "summary": "Idle trucking-empire game; ported and hardened a Supabase cloud-save system (identity, sync, conflicts, transfer codes, refund guards) and shipped UX and A/B fixes.",
+    "thumbnail": "/images/work/idle-truck-fleet/thumb.webp",
+    "thumbnail_alt": "Idle Truck Fleet thumbnail",
+    "tags": [
+      "Cloud Save",
+      "Supabase",
+      "TypeScript",
+      "Capacitor",
+      "Live Ops"
+    ],
+    "links": {
+      "page": "/work/idle-truck-fleet/"
+    }
+  },
+  {
+    "slug": "zen-sea",
+    "title": "Zen Sea: Idle Fish Game",
+    "summary": "Shark-hunting roguelite with neuro-evolving fish schools; worked on ad placement, analytics instrumentation, push permission flow, and game-over UX.",
+    "thumbnail": "/images/work/zen-sea/thumb.webp",
+    "thumbnail_alt": "Zen Sea: Idle Fish Game thumbnail",
+    "tags": [
+      "Monetization",
+      "Analytics",
+      "React",
+      "Capacitor",
+      "Canvas"
+    ],
+    "links": {
+      "page": "/work/zen-sea/"
+    }
+  },
+  {
+    "slug": "crane-jam",
+    "title": "Crane Jam",
+    "summary": "In development: a 3D crane-and-cargo puzzle I'm building solo, grown from a feel prototype into a 46-level campaign with level generation, economy, and difficulty tooling.",
+    "thumbnail": "/images/work/crane-jam/thumb.webp",
+    "thumbnail_alt": "Crane Jam thumbnail",
+    "tags": [
+      "three.js",
+      "React",
+      "Puzzle",
+      "Tooling",
+      "Prototype"
+    ],
+    "links": {
+      "page": "/work/crane-jam/"
     }
   },
   {
